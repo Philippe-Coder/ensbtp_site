@@ -1,67 +1,71 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
+        <div class="flex justify-between h-16 items-center">
+            <div class="flex items-center">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ url('/') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                <div class="hidden space-x-10 sm:-my-px sm:ms-12 sm:flex items-center">
+                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('/') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Accueil</a>
+                    <a href="{{ url('/about') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('about') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">À propos</a>
+                    <a href="{{ url('/services') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('services*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Services</a>
+                    <a href="{{ url('/realisations') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('realisations*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Réalisations</a>
+                    <a href="{{ url('/offres') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('offres*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Offres</a>
+                    <a href="{{ url('/blog') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('blog*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Blog</a>
+                    <a href="{{ url('/contact') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('contact') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Contact</a>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            @auth
+            <!-- Right side: auth links -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                @auth
+                <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                <div>{{ Auth::user()->name }}</div>
 
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
+                                <div class="ms-1">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </button>
+                        </x-slot>
 
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Profile') }}
                             </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-            @endauth
 
-            @guest
-            <div class="hidden sm:flex sm:items-center sm:ms-6 gap-3">
-                <a href="{{ route('login') }}" class="text-sm font-medium text-blue-700 hover:text-blue-800">Se connecter</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700">S'inscrire</a>
-                @endif
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+
+                                <x-dropdown-link :href="route('logout')"
+                                        onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </x-dropdown-link>
+                            </form>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+                @else
+                <div class="hidden sm:flex sm:items-center sm:space-x-3">
+                    <a href="{{ route('login') }}" class="text-sm font-medium text-blue-700 hover:text-blue-800">Se connecter</a>
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700">S'inscrire</a>
+                    @endif
+                </div>
+                @endauth
             </div>
-            @endguest
 
             <!-- Hamburger -->
             <div class="-me-2 flex items-center sm:hidden">
@@ -78,12 +82,17 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
+            <a href="{{ url('/') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Accueil</a>
+            <a href="{{ url('/about') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">À propos</a>
+            <a href="{{ url('/services') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Services</a>
+            <a href="{{ url('/realisations') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Réalisations</a>
+            <a href="{{ url('/offres') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Offres</a>
+            <a href="{{ url('/blog') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Blog</a>
+            <a href="{{ url('/contact') }}" class="block px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-100">Contact</a>
         </div>
 
         <!-- Responsive Settings Options -->
+        @auth
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
@@ -107,5 +116,15 @@
                 </form>
             </div>
         </div>
+        @else
+        <div class="pt-4 pb-1 border-t border-gray-200 px-4">
+            <div class="space-y-1">
+                <a href="{{ route('login') }}" class="block px-4 py-2 text-base font-medium text-blue-700 hover:bg-gray-100">Se connecter</a>
+                @if (Route::has('register'))
+                    <a href="{{ route('register') }}" class="block px-4 py-2 mt-1 bg-blue-600 text-white rounded-md text-center font-medium hover:bg-blue-700">S'inscrire</a>
+                @endif
+            </div>
+        </div>
+        @endauth
     </div>
 </nav>

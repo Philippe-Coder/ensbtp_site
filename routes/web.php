@@ -1,6 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RealisationController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\OffreController;
+use App\Http\Controllers\FormOffreController;
+use App\Http\Controllers\Admin\RealisationController as AdminRealisationController;
+use App\Http\Controllers\Admin\OffreController as AdminOffreController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,3 +34,34 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Public pages
+Route::view('/about', 'about')->name('about');
+// Name the services route as `services.index` to match blade links
+Route::view('/services', 'services')->name('services.index');
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
+
+// Contact page
+Route::view('/contact', 'contact')->name('contact');
+
+// Offres public
+Route::get('/offres', [OffreController::class, 'index'])->name('offres.index');
+Route::get('/offres/{slug}', [OffreController::class, 'show'])->name('offres.show');
+
+// Subscribe to a pack / offre
+Route::post('/offres/subscribe', [FormOffreController::class, 'store'])->name('offres.subscribe');
+
+// Realisations public
+Route::get('/realisations', [RealisationController::class, 'index'])->name('realisations.index');
+Route::get('/realisations/{slug}', [RealisationController::class, 'show'])->name('realisations.show');
+
+// Admin realisations (protected)
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('realisations', AdminRealisationController::class)->except(['show']);
+    Route::resource('offres', AdminOffreController::class)->except(['show']);
+    Route::resource('posts', AdminPostController::class)->except(['show']);
+    // Admin dashboard and messages
+    Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('messages', [AdminController::class, 'messages'])->name('messages');
+});

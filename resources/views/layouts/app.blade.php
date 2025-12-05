@@ -16,7 +16,7 @@
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100 text-black">
-            @include('layouts.navigation')
+            @includeIf('partials.header')
 
             <!-- Page Heading -->
             @isset($header)
@@ -35,6 +35,9 @@
                     {{ $slot }}
                 @endif
             </main>
+
+            {{-- Footer included for all pages --}}
+            @includeIf('partials.footer')
         </div>
     </body>
 </html>

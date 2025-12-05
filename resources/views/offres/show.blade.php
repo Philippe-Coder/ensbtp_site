@@ -1,6 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
+<section class="py-12">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl font-bold mb-4">{{ $offre->title }}</h1>
+            <p class="text-gray-700 mb-6">{{ $offre->description }}</p>
+            @if($offre->price)
+                <div class="text-2xl font-bold text-blue-600 mb-6">Prix : {{ $offre->price }}</div>
+            @endif
+
+            <a href="#contact" class="inline-block px-6 py-3 bg-cyan-500 text-white rounded">Souscrire</a>
+        </div>
+    </div>
+</section>
+@endsection
+@extends('layouts.app')
+
+@section('content')
 <div class="container py-16 mx-auto">
     <h1 class="text-3xl font-bold">{{ $offre->title }}</h1>
     <p class="mt-4 text-gray-700 leading-relaxed">{{ $offre->description }}</p>

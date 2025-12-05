@@ -9,9 +9,8 @@ class OffreController extends Controller
 {
     public function index()
     {
-        return view('offres.index', [
-            'offres' => Offre::all(),
-        ]);
+        $offres = Offre::orderBy('created_at', 'desc')->get();
+        return view('offres.index', compact('offres'));
     }
 
     public function show($slug)

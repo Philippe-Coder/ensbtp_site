@@ -371,7 +371,11 @@
                 <div class="bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
                     <h3 class="text-2xl font-bold text-white mb-6">Envoyez-nous un message</h3>
                     
-                    <form class="space-y-6">
+                    <form class="space-y-6" method="POST" action="{{ route('offres.subscribe') }}">
+                        @csrf
+                        @if(session('success'))
+                            <div class="p-3 bg-green-100 text-green-800 rounded">{{ session('success') }}</div>
+                        @endif
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-blue-200 mb-2 font-medium">Nom complet</label>
@@ -392,14 +396,15 @@
                             <input type="email" 
                                 class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-black placeholder-blue-300 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300"
                                    placeholder="votre@email.com">
+                                name="email">
                         </div>
                         
                         <div>
                             <label class="block text-blue-200 mb-2 font-medium">Pack intéressé</label>
-                            <select class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-black focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300">
+                            <select name="pack" class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-black focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300">
                                 <option class="bg-gray-800">Sélectionnez un pack</option>
                                 @foreach(['Pack00', 'Pack1 Classic', 'Pack2 Basique', 'Pack3 Premium', 'Pack4 Elite', 'Pack5 VIP'] as $pack)
-                                <option class="bg-gray-800">{{ $pack }}</option>
+                                <option class="bg-gray-800" value="{{ $pack }}">{{ $pack }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -409,6 +414,7 @@
                             <textarea rows="4" 
                                       class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-xl text-black placeholder-blue-300 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 transition-all duration-300 resize-none"
                                       placeholder="Décrivez votre projet..."></textarea>
+                                      name="message"></textarea>
                         </div>
                         
                         <button type="submit" 
