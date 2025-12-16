@@ -3,12 +3,14 @@
 @section('content')
 
 <!-- Hero Section Blog -->
-<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
+<section class="relative flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800" style="min-height:680px;">
     <!-- Background Effects -->
     <div class="absolute inset-0 z-0">
         <div class="absolute top-0 left-0 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-emerald-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/img7.jpg') }}');"></div>
+        <div class="absolute inset-0 bg-blue-200/30 backdrop-blur-sm pointer-events-none"></div>
         
         <!-- Geometric Pattern -->
         <div class="absolute inset-0 opacity-5">
@@ -345,10 +347,13 @@
                 actualités et offres exclusives directement dans votre boîte mail.
             </p>
             
-            <form class="max-w-lg mx-auto">
+            <form method="POST" action="{{ route('newsletter.subscribe') }}" class="max-w-lg mx-auto">
+                @csrf
                 <div class="flex flex-col sm:flex-row gap-4">
                     <input type="email" 
+                           name="email"
                            placeholder="Votre adresse email" 
+                           required
                            class="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30 transition-all duration-300">
                     
                     <button type="submit" 
@@ -403,11 +408,12 @@
         });
     });
     
-    // Newsletter form
+    // Newsletter form with AJAX
     document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
-        const emailInput = this.querySelector('input[type="email"]');
-        const submitBtn = this.querySelector('button[type="submit"]');
+        const form = this;
+        const emailInput = form.querySelector('input[type="email"]');
+        const submitBtn = form.querySelector('button[type="submit"]');
         
         if (!emailInput.value) {
             emailInput.focus();
@@ -422,26 +428,52 @@
         `;
         submitBtn.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            // Show success
-            submitBtn.innerHTML = `
-                <i class="fas fa-check"></i>
-                <span>Inscrit !</span>
-            `;
-            submitBtn.className = submitBtn.className.replace('from-emerald-500 to-blue-600', 'from-green-500 to-emerald-600');
-            
-            // Reset form
-            setTimeout(() => {
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.className = submitBtn.className.replace('from-green-500 to-emerald-600', 'from-emerald-500 to-blue-600');
-                submitBtn.disabled = false;
+        // Send form data via AJAX
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show success
+                submitBtn.innerHTML = `
+                    <i class="fas fa-check"></i>
+                    <span>Inscrit !</span>
+                `;
+                submitBtn.className = submitBtn.className.replace('from-emerald-500 to-blue-600', 'from-green-500 to-emerald-600');
                 
-                // Show success message
-                alert('✅ Vous êtes maintenant inscrit à notre newsletter ! Merci.');
-            }, 2000);
-        }, 1500);
+                // Reset form
+                setTimeout(() => {
+                    form.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.className = submitBtn.className.replace('from-green-500 to-emerald-600', 'from-emerald-500 to-blue-600');
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
+                    alert('✅ Vous êtes maintenant inscrit à notre newsletter ! Merci.');
+                }, 2000);
+            } else {
+                alert('Erreur: ' + (data.message || 'Une erreur est survenue'));
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Check if it's a unique constraint violation
+            if (error.message.includes('422')) {
+                alert('Cet email est déjà inscrit à notre newsletter.');
+            } else {
+                alert('Erreur de connexion. Veuillez réessayer.');
+            }
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
     });
 </script>
 @endpush

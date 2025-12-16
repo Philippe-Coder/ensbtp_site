@@ -3,42 +3,27 @@
 @section('content')
 
 <!-- Hero Section About -->
-<section class="relative min-h-[60vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
-    <!-- Background Effects -->
-    <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        
-        <!-- Geometric Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%230ea5e9" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+<x-banner :images="['img6.jpg']">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center">
+
+            <!-- Main Title -->
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
+                Construire l'Excellence,
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-600">
+                    Forger la Confiance
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
+                Découvrez l'histoire, la mission et les valeurs qui font de ENSBTP SARLU 
+                votre partenaire de confiance pour tous vos projets de construction.
+            </p>
+
         </div>
     </div>
-
-    <div class="container mx-auto px-4 relative z-10 py-20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center">
-   
-                <!-- Main Title -->
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
-                    Construire l'Excellence,
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-600">
-                        Forger la Confiance
-                    </span>
-                </h1>
-
-                <!-- Subtitle -->
-                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
-                    Découvrez l'histoire, la mission et les valeurs qui font de ENSBTP SARLU 
-                    votre partenaire de confiance pour tous vos projets de construction.
-                </p>
-
-                
-            </div>
-        </div>
-    </div>
-</section>
+</x-banner>
 
 <!-- Notre Histoire -->
 <section class="py-20 bg-white relative overflow-hidden">
@@ -90,45 +75,24 @@
                     </h2>
 
                     <div class="space-y-6">
-                        <p class="text-lg text-gray-700 leading-relaxed">
+                        <p class="text-2xl text-gray-700 leading-relaxed">
                             Fondée en 2008, <span class="font-semibold text-blue-700">ENSBTP SARLU</span> est née d'une vision simple mais ambitieuse : 
                             démocratiser l'accès à la propriété immobilière de qualité en Côte d'Ivoire et dans la sous-région.
                         </p>
                         
-                        <p class="text-lg text-gray-700 leading-relaxed">
+                        <p class="text-2xl text-gray-700 leading-relaxed">
                             Depuis plus de 15 ans, nous avons évolué d'une petite entreprise familiale à un acteur majeur 
                             du secteur de la construction, tout en conservant nos valeurs fondamentales d'intégrité, 
                             de qualité et d'engagement client.
                         </p>
                         
-                        <p class="text-lg text-gray-700 leading-relaxed">
+                        <p class="text-2xl text-gray-700 leading-relaxed">
                             Notre parcours est jalonné de réussites, d'innovations et surtout, de relations durables 
                             avec nos clients qui nous font confiance projet après projet.
                         </p>
                     </div>
 
-                    <!-- Achievement Badges -->
-                    <div class="grid grid-cols-2 gap-4 mt-10">
-                        <div class="flex items-center gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-                                <i class="fas fa-award text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-gray-800">Certifié ISO 9001</div>
-                                <div class="text-sm text-gray-600">Qualité garantie</div>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-3 p-4 bg-cyan-50 rounded-xl border border-cyan-100">
-                            <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
-                                <i class="fas fa-medal text-white text-xl"></i>
-                            </div>
-                            <div>
-                                <div class="font-bold text-gray-800">Prix Excellence 2022</div>
-                                <div class="text-sm text-gray-600">Innovation construction</div>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -139,7 +103,7 @@
 <section class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
     <!-- Background Pattern -->
     <div class="absolute inset-0 opacity-5">
-        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%230ea5e9" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');"></div>
+        <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-.895-3-2-3-3 .895-3 2 .895 3 2 3zm63 31c1.657 0 3-1.343 3-3s-.895-3-2-3-3 .895-3 2 .895 3 2 3zM34 90c1.657 0 3-1.343 3-3s-.895-3-2-3-3 .895-3 2 .895 3 2 3zm56-76c1.657 0 3-1.343 3-3s-.895-3-2-3-3 .895-3 2 .895 3 2 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%230ea5e9" fill-opacity="0.4" fill-rule="evenodd"/%3E%3C/svg%3E');"></div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
@@ -154,7 +118,7 @@
                     Vision
                 </span>
             </h2>
-            <p class="text-xl text-gray-600 leading-relaxed">
+            <p class="text-2xl text-gray-600 leading-relaxed">
                 Les piliers fondamentaux qui guident chacune de nos actions
             </p>
         </div>
@@ -177,7 +141,7 @@
                             </div>
                             
                             <div class="space-y-6">
-                                <p class="text-lg text-gray-700 leading-relaxed">
+                                <p class="text-2xl text-gray-700 leading-relaxed">
                                     <span class="font-semibold text-blue-700">Transformer les rêves immobiliers en réalités durables</span> 
                                     en offrant des solutions de construction innovantes, financièrement accessibles 
                                     et techniquement excellentes.
@@ -238,7 +202,7 @@
                             </div>
                             
                             <div class="space-y-6">
-                                <p class="text-lg text-gray-700 leading-relaxed">
+                                <p class="text-2xl text-gray-700 leading-relaxed">
                                     <span class="font-semibold text-cyan-700">Devenir le leader incontesté de la construction intelligente et durable</span> 
                                     en Afrique de l'Ouest, en redéfinissant les standards du secteur 
                                     par l'innovation et l'excellence.
@@ -300,7 +264,7 @@
                         Nous Animent
                     </span>
                 </h2>
-                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                <p class="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
                     Des principes intangibles qui guident chacune de nos décisions et actions
                 </p>
             </div>
@@ -325,77 +289,11 @@
                             <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $value['title'] }}</h3>
                             
                             <!-- Description -->
-                            <p class="text-gray-600 flex-grow">{{ $value['desc'] }}</p>
+                            <p class="text-2xl text-gray-600 flex-grow">{{ $value['desc'] }}</p>
                             
                             <!-- Divider -->
                             <div class="w-16 h-1 bg-gradient-to-r {{ $value['color'] }} rounded-full mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Notre Équipe (Optionnel - si vous avez des membres d'équipe) -->
-<section class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
-    <div class="container mx-auto px-4">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full px-8 py-4 mb-8 shadow-xl shadow-blue-500/30">
-                    <i class="fas fa-users text-white text-lg"></i>
-                    <span class="font-bold text-white tracking-wider text-lg">NOTRE ÉQUIPE</span>
-                </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-                    Les Experts 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
-                        derrière votre Projet
-                    </span>
-                </h2>
-                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-                    Une équipe pluridisciplinaire d'experts passionnés, dédiés à la réussite de votre projet
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach([
-                    ['name' => 'Jean Koffi', 'role' => 'Directeur Général', 'desc' => '25 ans d\'expérience en ingénierie civile', 'icon' => 'fa-user-tie'],
-                    ['name' => 'Marie Koné', 'role' => 'Directrice Financière', 'desc' => 'Spécialiste en financement de projets', 'icon' => 'fa-chart-line'],
-                    ['name' => 'Paul N\'Guessan', 'role' => 'Chef de Projets', 'desc' => 'Expert en gestion de chantier', 'icon' => 'fa-hard-hat'],
-                    ['name' => 'Amina Traoré', 'role' => 'Architecte en Chef', 'desc' => 'Designer primée, visionnaire créative', 'icon' => 'fa-pencil-ruler'],
-                    ['name' => 'Samuel Kouamé', 'role' => 'Ingénieur Structure', 'desc' => 'Spécialiste en calcul de structures', 'icon' => 'fa-calculator'],
-                    ['name' => 'Fatou Diarra', 'role' => 'Relation Client', 'desc' => 'Votre interlocutrice dédiée', 'icon' => 'fa-headset']
-                ] as $member)
-                <div class="group animate-slideInUp">
-                    <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                        <!-- Member Header -->
-                        <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-500 relative overflow-hidden">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                <i class="fas {{ $member['icon'] }} text-white/20 text-8xl"></i>
-                            </div>
-                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-900/50 to-transparent p-6">
-                                <h3 class="text-2xl font-bold text-white">{{ $member['name'] }}</h3>
-                                <p class="text-blue-200">{{ $member['role'] }}</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Member Info -->
-                        <div class="p-6">
-                            <p class="text-gray-600 mb-6">{{ $member['desc'] }}</p>
-                            <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-500">
-                                    <i class="fas fa-envelope mr-1"></i>
-                                    Disponible
-                                </span>
-                                <span class="text-sm text-blue-600 font-semibold">
-                                    Expérience confirmée
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <!-- Hover Effect -->
-                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-blue-400 rounded-2xl transition-all duration-500 pointer-events-none"></div>
                     </div>
                 </div>
                 @endforeach

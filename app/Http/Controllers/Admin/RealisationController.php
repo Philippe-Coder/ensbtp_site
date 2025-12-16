@@ -25,14 +25,19 @@ class RealisationController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
             'excerpt' => 'nullable|string|max:500',
             'content' => 'nullable|string',
+            'category' => 'nullable|string|max:100',
             'published_at' => 'nullable|date',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
             'media.*' => 'file|mimes:jpg,jpeg,png,gif,mp4,mov,webm|max:10240'
         ]);
 
-        $data['slug'] = $data['slug'] ?? Str::slug($data['title']);
+        // Upload main image
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('realisations', 'public');
+            $data['image'] = Storage::url($path);
+        }
 
         $media = [];
         if ($request->hasFile('media')) {
@@ -58,14 +63,19 @@ class RealisationController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255',
             'excerpt' => 'nullable|string|max:500',
             'content' => 'nullable|string',
+            'category' => 'nullable|string|max:100',
             'published_at' => 'nullable|date',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
             'media.*' => 'file|mimes:jpg,jpeg,png,gif,mp4,mov,webm|max:10240'
         ]);
 
-        $data['slug'] = $data['slug'] ?? Str::slug($data['title']);
+        // Upload main image if provided
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('realisations', 'public');
+            $data['image'] = Storage::url($path);
+        }
 
         $media = $realisation->media ?? [];
         if ($request->hasFile('media')) {

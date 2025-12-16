@@ -12,17 +12,17 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-10 sm:-my-px sm:ms-12 sm:flex items-center">
-                    <a href="{{ url('/') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('/') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Accueil</a>
-                    <a href="{{ url('/about') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('about') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">À propos</a>
-                    <a href="{{ url('/services') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('services*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Services</a>
-                    <a href="{{ url('/realisations') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('realisations*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Réalisations</a>
-                    <a href="{{ url('/offres') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('offres*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Offres</a>
-                    <a href="{{ url('/blog') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('blog*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Blog</a>
-                    <a href="{{ url('/contact') }}" class="text-sm font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('contact') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Contact</a>
+                    <a href="{{ url('/') }}" class="text-base font-medium text-gray-800 hover:text-blue-700 px-8 py-2 transition-colors duration-200 {{ request()->is('/') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Accueil</a>
+                    <a href="{{ url('/about') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('about') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">À propos</a>
+                    <a href="{{ url('/services') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('services*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Services</a>
+                    <a href="{{ url('/realisations') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('realisations*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Réalisations</a>
+                    <a href="{{ url('/offres') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('offres*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Offres</a>
+                    <a href="{{ url('/blog') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('blog*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Blog</a>
+                    <a href="{{ url('/contact') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('contact') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Contact</a>
                 </div>
             </div>
 
-            <!-- Right side: auth links -->
+            <!-- Right side: auth links (affiché uniquement pour les utilisateurs connectés) -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 @auth
                 <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -56,13 +56,6 @@
                             </form>
                         </x-slot>
                     </x-dropdown>
-                </div>
-                @else
-                <div class="hidden sm:flex sm:items-center sm:space-x-3">
-                    <a href="{{ route('login') }}" class="text-sm font-medium text-blue-700 hover:text-blue-800">Se connecter</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded-md text-sm font-medium hover:bg-blue-700">S'inscrire</a>
-                    @endif
                 </div>
                 @endauth
             </div>
@@ -114,15 +107,6 @@
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
-            </div>
-        </div>
-        @else
-        <div class="pt-4 pb-1 border-t border-gray-200 px-4">
-            <div class="space-y-1">
-                <a href="{{ route('login') }}" class="block px-4 py-2 text-base font-medium text-blue-700 hover:bg-gray-100">Se connecter</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="block px-4 py-2 mt-1 bg-blue-600 text-white rounded-md text-center font-medium hover:bg-blue-700">S'inscrire</a>
-                @endif
             </div>
         </div>
         @endauth

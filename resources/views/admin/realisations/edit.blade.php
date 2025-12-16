@@ -1,60 +1,147 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
-@section('content')
-<div class="container mx-auto px-4 py-12">
-    <h1 class="text-2xl font-bold mb-6">Modifier la Réalisation</h1>
+@section('title','Modifier une Réalisation')
 
-    <form action="{{ route('admin.realisations.update', $realisation) }}" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white p-6 rounded shadow">
+@section('admin-content')
+<div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Modifier la Réalisation</h1>
+
+    <form action="{{ route('admin.realisations.update', $realisation) }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
         @method('PUT')
+
+        <!-- Titre -->
         <div>
-            <label class="block font-medium">Titre</label>
-            <input name="title" value="{{ old('title', $realisation->title) }}" class="w-full border p-3 rounded" required>
-        </div>
-        <div>
-            <label class="block font-medium">Slug (optionnel)</label>
-            <input name="slug" value="{{ old('slug', $realisation->slug) }}" class="w-full border p-3 rounded">
-        </div>
-        <div>
-            <label class="block font-medium">Extrait</label>
-            <input name="excerpt" value="{{ old('excerpt', $realisation->excerpt) }}" class="w-full border p-3 rounded">
-        </div>
-        <div>
-            <label class="block font-medium">Contenu</label>
-            <textarea name="content" rows="6" class="w-full border p-3 rounded">{{ old('content', $realisation->content) }}</textarea>
+            <label class="block text-gray-700 font-medium mb-2">Titre *</label>
+            <input type="text" name="title" required value="{{ old('title', $realisation->title) }}"
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
+            @error('title')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
 
+        <!-- Catégorie -->
         <div>
-            <label class="block font-medium">Médias actuels</label>
-            <div class="grid grid-cols-3 gap-3 mb-3">
-                @if(is_array($realisation->media))
-                    @foreach($realisation->media as $m)
-                        <div class="p-2 border rounded">
-                            @if(preg_match('/\.(mp4|mov|webm)$/i', $m))
-                                <video src="{{ $m }}" class="w-full" controls></video>
-                            @else
-                                <img src="{{ $m }}" class="w-full object-cover">
-                            @endif
-                        </div>
-                    @endforeach
-                @endif
+            <label class="block text-gray-700 font-medium mb-2">Catégorie</label>
+            <input type="text" name="category" value="{{ old('category', $realisation->category) }}"
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                   placeholder="Ex: Bâtiment, Maison, Bureaux...">
+        </div>
+
+        <!-- Description courte -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Description courte</label>
+            <textarea name="excerpt" rows="3"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">{{ old('excerpt', $realisation->excerpt) }}</textarea>
+        </div>
+
+        <!-- Contenu détaillé -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Description détaillée</label>
+            <textarea name="content" rows="6"
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">{{ old('content', $realisation->content) }}</textarea>
+        </div>
+
+        <!-- Image principale -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Image principale</label>
+            @if($realisation->image)
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 mb-2">Image actuelle:</p>
+                    <img src="{{ $realisation->image }}" class="h-32 rounded">
+                </div>
+            @endif
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <input type="file" name="image" accept="image/jpeg,image/png,image/gif"
+                       class="hidden" id="image-input">
+                <label for="image-input" class="cursor-pointer">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V20m-8-12l-3.172-3.172a4 4 0 00-5.656 0L28 12m0 0l4 4m-4-4v16"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600">Cliquez pour changer l'image</p>
+                </label>
+                <div id="image-preview" class="mt-4"></div>
             </div>
         </div>
 
+        <!-- Galerie d'images supplémentaires -->
         <div>
-            <label class="block font-medium">Ajouter des médias (optionnel)</label>
-            <input type="file" name="media[]" multiple class="w-full">
+            <label class="block text-gray-700 font-medium mb-2">Galerie d'images</label>
+            @if(is_array($realisation->media) && count($realisation->media) > 0)
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 mb-2">Images actuelles:</p>
+                    <div class="grid grid-cols-4 gap-2">
+                        @foreach($realisation->media as $m)
+                            <div class="relative">
+                                @if(preg_match('/\.(mp4|mov|webm)$/i', $m))
+                                    <div class="w-full h-24 bg-gray-200 rounded flex items-center justify-center"><span>📹</span></div>
+                                @else
+                                    <img src="{{ $m }}" class="w-full h-24 object-cover rounded">
+                                @endif
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <input type="file" name="media[]" accept="image/*,video/*" multiple
+                       class="hidden" id="media-input">
+                <label for="media-input" class="cursor-pointer">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V20m-8-12l-3.172-3.172a4 4 0 00-5.656 0L28 12m0 0l4 4m-4-4v16"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600">Cliquez pour ajouter d'autres images ou vidéos</p>
+                </label>
+                <div id="media-preview" class="mt-4 grid grid-cols-2 gap-4"></div>
+            </div>
         </div>
 
+        <!-- Date de publication -->
         <div>
-            <label class="block font-medium">Publié le</label>
-            <input type="datetime-local" name="published_at" value="{{ optional($realisation->published_at)->format('Y-m-d\TH:i') }}" class="w-full border p-3 rounded">
+            <label class="block text-gray-700 font-medium mb-2">Date de publication</label>
+            <input type="date" name="published_at" value="{{ old('published_at', optional($realisation->published_at)->format('Y-m-d')) }}"
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200">
         </div>
 
-        <div>
-            <button class="px-4 py-2 bg-blue-600 text-white rounded">Mettre à jour</button>
-            <a href="{{ route('admin.realisations.index') }}" class="ml-3 text-gray-600">Retour</a>
+        <!-- Boutons -->
+        <div class="flex gap-4 pt-4">
+            <button type="submit" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                Mettre à jour
+            </button>
+            <a href="{{ route('admin.realisations.index') }}" class="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                Annuler
+            </a>
         </div>
     </form>
 </div>
+
+<script>
+    document.getElementById('image-input').addEventListener('change', function(e) {
+        const preview = document.getElementById('image-preview');
+        preview.innerHTML = '';
+        if (this.files.length > 0) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                preview.innerHTML = `<img src="${event.target.result}" class="h-32 mx-auto rounded">`;
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+
+    document.getElementById('media-input').addEventListener('change', function(e) {
+        const preview = document.getElementById('media-preview');
+        preview.innerHTML = '';
+        Array.from(this.files).forEach(file => {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                if (file.type.startsWith('image/')) {
+                    preview.innerHTML += `<img src="${event.target.result}" class="h-24 w-full object-cover rounded">`;
+                } else {
+                    preview.innerHTML += `<div class="flex items-center justify-center h-24 bg-gray-200 rounded"><span class="text-gray-600">📹</span></div>`;
+                }
+            };
+            reader.readAsDataURL(file);
+        });
+    });
+</script>
 @endsection

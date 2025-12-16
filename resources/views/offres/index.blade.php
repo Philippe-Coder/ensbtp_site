@@ -3,45 +3,31 @@
 @section('content')
 
 <!-- Hero Section Packs -->
-<section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
-    <!-- Background Effects -->
-    <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        
-        <!-- Geometric Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%238b5cf6" fill-opacity="0.4"%3E%3Cpath d="M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S10 15.523 10 10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zM20 20c0-5.523 4.477-10 10-10s10 4.477 10 20-4.477 20-10 20-10-14.477-10-20zm20 20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        </div>
-    </div>
-
-    <div class="container mx-auto px-4 relative z-10 py-20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center">
-                <!-- Badge Elite -->
-                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-8 py-4 border border-white/20 shadow-2xl shadow-blue-900/30 mb-8 animate-slideInUp">
-                    <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
-                    <span class="font-semibold text-white text-lg tracking-wider">INVESTISSEZ DANS VOTRE AVENIR</span>
-                </div>
-
-                <!-- Main Title -->
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
-                    Nos Packs 
-                    <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-600">
-                        de Souscription
-                    </span>
-                </h1>
-
-                <!-- Subtitle -->
-                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
-                    Choisissez le pack qui correspond à vos ambitions et préparez sereinement votre avenir 
-                    avec nos solutions d'épargne et d'investissement adaptées.
-                </p>
+<x-banner :images="['img6.jpg']">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center">
+            <!-- Badge Elite -->
+            <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-8 py-4 border border-white/20 shadow-2xl shadow-blue-900/30 mb-8 animate-slideInUp">
+                <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
+                <span class="font-semibold text-white text-lg tracking-wider">INVESTISSEZ DANS VOTRE AVENIR</span>
             </div>
+
+            <!-- Main Title -->
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
+                Nos Packs 
+                <span class="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-600">
+                    de Souscription
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
+                Choisissez le pack qui correspond à vos ambitions et préparez sereinement votre avenir 
+                avec nos solutions d'épargne et d'investissement adaptées.
+            </p>
         </div>
     </div>
-</section>
+</x-banner>
 
 <!-- Packs de Souscription -->
 <section class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
@@ -65,7 +51,7 @@
             </div>
 
             <!-- Packs Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
                 @php
                     $packs = [
                         [
@@ -78,49 +64,49 @@
                             'price' => 'Sur mesure'
                         ],
                         [
-                            'name' => 'Pack 1 (Classic)',
+                            'name' => 'Pack 01 Classic',
                             'category' => 'SMIG - 100 000 CFA',
                             'description' => 'Parfait pour débuter votre épargne construction',
                             'features' => ['Épargne mensuelle', 'Accompagnement de base', 'Garantie sécurité'],
-                            'color' => 'from-blue-500 to-indigo-600',
-                            'icon' => 'fa-coins',
-                            'price' => '100 000 CFA',
-                            'popular' => true
+                            'color' => 'from-blue-500 to-blue-600',
+                            'icon' => 'fa-home',
+                            'price' => '100 000 CFA'
                         ],
                         [
-                            'name' => 'Pack 2 (Basique simple)',
+                            'name' => 'Pack 02 Basique Simple',
                             'category' => '100 001 - 200 000 CFA',
                             'description' => 'Pour accélérer votre projet de construction',
                             'features' => ['Épargne intermédiaire', 'Conseils personnalisés', 'Bonus fidélité'],
-                            'color' => 'from-green-500 to-teal-600',
-                            'icon' => 'fa-chart-line',
+                            'color' => 'from-blue-500 to-blue-600',
+                            'icon' => 'fa-building',
                             'price' => '150 000 CFA'
                         ],
                         [
-                            'name' => 'Pack 3 (Basique - Basique)',
+                            'name' => 'Pack 03 Basique Basique',
                             'category' => '200 001 - 500 000 CFA',
                             'description' => 'Épargne confortable pour projet ambitieux',
                             'features' => ['Épargne avancée', 'Rendement garanti', 'Support prioritaire'],
-                            'color' => 'from-amber-500 to-orange-600',
-                            'icon' => 'fa-gem',
-                            'price' => '350 000 CFA'
+                            'color' => 'from-blue-500 to-blue-600',
+                            'icon' => 'fa-hammer',
+                            'price' => '350 000 CFA',
+                            'popular' => true
                         ],
                         [
-                            'name' => 'Pack 4 (Basique Fort)',
-                            'category' => '600 000 - 999 999 CFA',
+                            'name' => 'Pack 04 Basique Fort',
+                            'category' => '500 001 - 999 999 CFA',
                             'description' => 'Pour les projets immobiliers d\'envergure',
                             'features' => ['Épargne premium', 'Rendement élevé', 'Accompagnement exclusif'],
-                            'color' => 'from-red-500 to-pink-600',
-                            'icon' => 'fa-crown',
+                            'color' => 'from-blue-500 to-blue-600',
+                            'icon' => 'fa-gem',
                             'price' => '800 000 CFA'
                         ],
                         [
-                            'name' => 'Pack VIP',
+                            'name' => 'Pack 05 VIP',
                             'category' => '1 000 000 CFA et plus',
                             'description' => 'Solution d\'épargne et d\'investissement premium',
                             'features' => ['Épargne exclusive', 'Rendement maximum', 'Conseiller dédié'],
-                            'color' => 'from-purple-600 to-indigo-700',
-                            'icon' => 'fa-medal',
+                            'color' => 'from-blue-600 to-blue-700',
+                            'icon' => 'fa-crown',
                             'price' => '1M+ CFA'
                         ]
                     ];
@@ -192,6 +178,90 @@
                     </div>
                 </div>
                 @endforeach
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- PEUT SOUSCRIRE À NOS PACKS -->
+<section class="py-20 bg-gradient-to-b from-white to-blue-50/30 relative overflow-hidden">
+    <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-blue-50 rounded-full px-6 py-3 mb-6 border border-blue-100 shadow-lg">
+                    <div class="w-2 h-2 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full"></div>
+                    <span class="font-bold text-blue-700 tracking-wider">ÉLIGIBILITÉ AUX PACKS</span>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+                    Qui Peut
+                    <span class="relative">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600">Souscrire</span>
+                        <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-400 to-blue-400 rounded-full"></span>
+                    </span>
+                </h2>
+            </div>
+
+            <!-- Eligibility Box -->
+            <div class="relative bg-white rounded-2xl shadow-2xl border border-blue-100 overflow-hidden p-8 md:p-12">
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent pointer-events-none"></div>
+                <div class="relative z-10">
+                    <p class="text-xl text-gray-700 leading-relaxed mb-8">
+                        Peuvent souscrire à nos packs pour préparer son avenir et ses vieux jours de retraite :
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <!-- Criterion 1 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-user text-blue-600 text-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Toute personne physique</h3>
+                                <p class="text-gray-600">Bien portante, exerçant une activité génératrice de revenu, qu'elle soit fonctionnaire ou non.</p>
+                            </div>
+                        </div>
+
+                        <!-- Criterion 2 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-building text-blue-600 text-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Toute personne morale</h3>
+                                <p class="text-gray-600">Légalement constituée, souhaitant investir dans des projets immobiliers ou préparer sa trésorerie.</p>
+                            </div>
+                        </div>
+
+                        <!-- Criterion 3 -->
+                        <div class="flex items-start gap-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-100 to-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-globe text-blue-600 text-lg"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900 mb-2">Diaspora & Entrepreneurs</h3>
+                                <p class="text-gray-600">Commerçants, entrepreneurs, privés et membres de la diaspora avec des solutions sur mesure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Objective -->
+                    <div class="mt-12 p-6 bg-gradient-to-r from-blue-50 to-blue-50 rounded-xl border border-blue-100">
+                        <h4 class="text-lg font-bold text-gray-900 mb-3 flex items-center">
+                            <i class="fas fa-target text-blue-600 mr-3"></i>
+                            Objectif
+                        </h4>
+                        <p class="text-gray-700">
+                            Nos packs sont conçus pour aider chacun à préparer sereinement son avenir, construire un patrimoine durable et sécuriser ses vieux jours de retraite grâce à une épargne intelligente et bien accompagnée.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -390,36 +460,37 @@
         </div>
         
         <!-- Modal Form -->
-        <form id="subscriptionForm" class="p-6 space-y-6">
+        <form id="subscriptionForm" method="POST" action="{{ route('offre.subscribe') }}" class="p-6 space-y-6">
+            @csrf
             <div>
                 <label class="block text-gray-700 font-medium mb-2">Nom complet *</label>
-                <input type="text" required
+                <input type="text" name="name" required
                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300"
                        placeholder="Votre nom et prénom">
             </div>
             
             <div>
                 <label class="block text-gray-700 font-medium mb-2">Téléphone *</label>
-                <input type="tel" required
+                <input type="tel" name="phone" required
                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300"
-                       placeholder="+225 00 00 00 00">
+                       placeholder="+288 90 10 88 03">
             </div>
             
             <div>
                 <label class="block text-gray-700 font-medium mb-2">Email *</label>
-                <input type="email" required
+                <input type="email" name="email" required
                        class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300"
-                       placeholder="votre@email.com">
+                       placeholder="ens.btp@yahoo.com">
             </div>
             
             <div>
                 <label class="block text-gray-700 font-medium mb-2">Revenu mensuel estimé</label>
-                <select class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300">
-                    <option>Moins de 100 000 CFA</option>
-                    <option>100 000 - 200 000 CFA</option>
-                    <option>200 000 - 500 000 CFA</option>
-                    <option>500 000 - 1 000 000 CFA</option>
-                    <option>Plus de 1 000 000 CFA</option>
+                <select name="salary_range" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all duration-300">
+                    <option value="">Moins de 100 000 CFA</option>
+                    <option value="100-200k">100 000 - 200 000 CFA</option>
+                    <option value="200-500k">200 000 - 500 000 CFA</option>
+                    <option value="500k-1m">500 000 - 1 000 000 CFA</option>
+                    <option value="1m+">Plus de 1 000 000 CFA</option>
                 </select>
             </div>
             
@@ -479,12 +550,13 @@
         }
     });
     
-    // Form submission
+    // Form submission with AJAX
     document.getElementById('subscriptionForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const submitBtn = this.querySelector('button[type="submit"]');
         const originalText = submitBtn.innerHTML;
+        const form = this;
         
         // Show loading state
         submitBtn.innerHTML = `
@@ -493,27 +565,48 @@
         `;
         submitBtn.disabled = true;
         
-        // Simulate API call
-        setTimeout(() => {
-            // Show success
-            submitBtn.innerHTML = `
-                <i class="fas fa-check"></i>
-                <span>Demande envoyée !</span>
-            `;
-            submitBtn.className = submitBtn.className.replace('from-indigo-600 to-purple-600', 'from-green-500 to-emerald-600');
-            
-            // Reset and close
-            setTimeout(() => {
-                this.reset();
-                closeSubscription();
-                submitBtn.innerHTML = originalText;
-                submitBtn.className = submitBtn.className.replace('from-green-500 to-emerald-600', 'from-indigo-600 to-purple-600');
-                submitBtn.disabled = false;
+        // Send form data via AJAX
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show success
+                submitBtn.innerHTML = `
+                    <i class="fas fa-check"></i>
+                    <span>Demande envoyée !</span>
+                `;
+                submitBtn.className = submitBtn.className.replace('from-indigo-600 to-purple-600', 'from-green-500 to-emerald-600');
                 
-                // Show success toast
-                alert('✅ Votre demande de souscription a été envoyée avec succès ! Notre équipe vous contactera sous 24h.');
-            }, 1500);
-        }, 2000);
+                // Reset and close
+                setTimeout(() => {
+                    form.reset();
+                    closeSubscription();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.className = submitBtn.className.replace('from-green-500 to-emerald-600', 'from-indigo-600 to-purple-600');
+                    submitBtn.disabled = false;
+                    
+                    // Show success toast
+                    alert('✅ Votre demande de souscription a été envoyée avec succès ! Notre équipe vous contactera sous 24h.');
+                }, 1500);
+            } else {
+                alert('Erreur: ' + (data.message || 'Une erreur est survenue'));
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Erreur de connexion. Veuillez réessayer.');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
     });
 </script>
 @endpush

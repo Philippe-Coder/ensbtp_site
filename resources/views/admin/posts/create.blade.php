@@ -1,50 +1,83 @@
 @extends('admin.layout')
 
-@section('title','Créer un article')
+@section('title','Créer un Article')
 
 @section('admin-content')
-<form action="{{ route('admin.posts.store') }}" method="POST" class="bg-white p-6 rounded shadow">
-    @csrf
-    <div class="grid grid-cols-1 gap-4">
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Titre</label>
-            <input type="text" name="title" class="mt-1 block w-full border rounded px-3 py-2" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Slug</label>
-            <input type="text" name="slug" class="mt-1 block w-full border rounded px-3 py-2" required>
-        </div>
-        <div>
-            <label class="block text-sm font-medium text-gray-700">Contenu</label>
-            <textarea name="content" rows="8" class="mt-1 block w-full border rounded px-3 py-2"></textarea>
-        </div>
-        <div>
-            <label class="inline-flex items-center">
-                <input type="checkbox" name="publish_now" value="1" class="mr-2"> Publier maintenant
-            </label>
-        </div>
-        <div>
-            <button class="px-4 py-2 bg-green-600 text-white rounded">Publier</button>
-        </div>
-    </div>
-</form>
-@endsection
-@extends('layouts.app')
+<div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Créer un Article</h1>
 
-@section('content')
-<div class="container py-12 mx-auto">
-    <h1 class="text-2xl font-bold mb-6">Publier un article</h1>
-
-    <form method="POST" action="{{ route('admin.posts.store') }}">
+    <form action="{{ route('admin.posts.store') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
         @csrf
 
-        <input type="text" name="title" placeholder="Titre" class="border p-2 block mb-3 w-full" required>
-        <input type="text" name="slug" placeholder="slug-unique" class="border p-2 block mb-3 w-full" required>
+        <!-- Titre -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Titre *</label>
+            <input type="text" name="title" required value="{{ old('title') }}"
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                   placeholder="Titre de l'article">
+            @error('title')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
 
-        <textarea name="content" placeholder="Contenu" class="border p-2 block mb-3 w-full" rows="8"></textarea>
+        <!-- Catégorie -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Catégorie</label>
+            <input type="text" name="category" value="{{ old('category') }}"
+                   class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                   placeholder="Ex: Technologie, Actualités, Conseils...">
+        </div>
 
-        <button class="bg-blue-600 text-white py-2 px-4 rounded">Publier</button>
+        <!-- Contenu -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Contenu *</label>
+            <textarea name="content" rows="8" required
+                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                      placeholder="Écrivez votre article ici...">{{ old('content') }}</textarea>
+            @error('content')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Image featured -->
+        <div>
+            <label class="block text-gray-700 font-medium mb-2">Image en vedette</label>
+            <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <input type="file" name="image" accept="image/jpeg,image/png,image/gif"
+                       class="hidden" id="image-input">
+                <label for="image-input" class="cursor-pointer">
+                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                        <path d="M28 8H12a4 4 0 00-4 4v20a4 4 0 004 4h24a4 4 0 004-4V20m-8-12l-3.172-3.172a4 4 0 00-5.656 0L28 12m0 0l4 4m-4-4v16"></path>
+                    </svg>
+                    <p class="mt-2 text-sm text-gray-600">Cliquez pour télécharger une image</p>
+                </label>
+                <div id="image-preview" class="mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Boutons -->
+        <div class="flex gap-4 pt-4">
+            <button type="submit" class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                Publier l'article
+            </button>
+            <a href="{{ route('admin.posts.index') }}" class="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg hover:bg-gray-400">
+                Annuler
+            </a>
+        </div>
     </form>
 </div>
 
+<script>
+    document.getElementById('image-input').addEventListener('change', function(e) {
+        const preview = document.getElementById('image-preview');
+        preview.innerHTML = '';
+        if (this.files.length > 0) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                preview.innerHTML = `<img src="${event.target.result}" class="h-32 mx-auto rounded">`;
+            };
+            reader.readAsDataURL(this.files[0]);
+        }
+    });
+</script>
 @endsection

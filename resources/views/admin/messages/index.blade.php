@@ -7,112 +7,119 @@ use Illuminate\Support\Str;
 @section('title','Demandes & Souscriptions')
 
 @section('admin-content')
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white p-4 rounded shadow">
-        <h3 class="font-semibold mb-2">Demandes de services</h3>
-        <div class="space-y-3">
-            @forelse($services as $s)
-                <div class="p-3 border rounded">
-                    <div class="text-sm text-gray-600">{{ $s->created_at->format('Y-m-d H:i') }}</div>
-                    <div class="font-medium">{{ $s->name ?? $s->full_name ?? '—' }}</div>
-                    <div class="text-sm text-gray-700">{{ Str::limit($s->message ?? $s->description ?? '', 120) }}</div>
-                </div>
-            @empty
-                <div class="text-sm text-gray-500">Aucune demande</div>
-            @endforelse
-        </div>
-    </div>
+<div class="min-h-screen bg-gray-50 p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-8">Tous les Messages</h1>
 
-    <div class="bg-white p-4 rounded shadow">
-        <h3 class="font-semibold mb-2">Souscriptions aux offres</h3>
-        <div class="space-y-3">
-            @forelse($offres as $o)
-                <div class="p-3 border rounded">
-                    <div class="text-sm text-gray-600">{{ $o->created_at->format('Y-m-d H:i') }}</div>
-                    <div class="font-medium">{{ $o->name ?? $o->full_name ?? ($o->email ?? '—') }}</div>
-                    <div class="text-sm text-gray-700">Pack: {{ $o->pack ?? '—' }}</div>
-                </div>
-            @empty
-                <div class="text-sm text-gray-500">Aucune souscription</div>
-            @endforelse
+    <!-- Contacts -->
+    <div class="bg-white rounded-lg shadow-md mb-8 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-4">
+            <h2 class="text-xl font-bold text-white">Contacts ({{ count($contacts) }})</h2>
         </div>
-    </div>
-</div>
-
-<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div class="bg-white p-4 rounded shadow">
-        <h3 class="font-semibold mb-2">Accompagnements</h3>
-        <div class="space-y-3">
-            @forelse($accompagnements as $a)
-                <div class="p-3 border rounded">
-                    <div class="text-sm text-gray-600">{{ $a->created_at->format('Y-m-d H:i') }}</div>
-                    <div class="font-medium">{{ $a->name ?? $a->full_name ?? '—' }}</div>
-                    <div class="text-sm text-gray-700">{{ Str::limit($a->message ?? '', 120) }}</div>
-                </div>
-            @empty
-                <div class="text-sm text-gray-500">Aucun accompagnement</div>
-            @endforelse
-        </div>
-    </div>
-
-    <div class="bg-white p-4 rounded shadow">
-        <h3 class="font-semibold mb-2">Contacts</h3>
-        <div class="space-y-3">
+        <div class="p-6">
             @forelse($contacts as $c)
-                <div class="p-3 border rounded">
-                    <div class="text-sm text-gray-600">{{ $c->created_at->format('Y-m-d H:i') }}</div>
-                    <div class="font-medium">{{ $c->name ?? $c->full_name ?? ($c->email ?? '—') }}</div>
-                    <div class="text-sm text-gray-700">{{ Str::limit($c->message ?? '', 120) }}</div>
+                <div class="border-l-4 border-blue-600 p-4 mb-4 bg-blue-50 rounded">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-gray-900">{{ $c->name ?? '—' }}</h3>
+                            <p class="text-sm text-gray-600">{{ $c->email }}</p>
+                            @if($c->phone)
+                                <p class="text-sm text-gray-600">{{ $c->phone }}</p>
+                            @endif
+                        </div>
+                        <span class="text-xs bg-blue-200 text-blue-800 px-3 py-1 rounded-full">{{ $c->created_at->format('d/m/Y H:i') }}</span>
+                    </div>
+                    <p class="text-gray-700 mt-3">{{ $c->message ?? '(aucun message)' }}</p>
                 </div>
             @empty
-                <div class="text-sm text-gray-500">Aucun contact</div>
+                <p class="text-gray-500 text-center py-8">Aucun contact reçu</p>
             @endforelse
         </div>
     </div>
-</div>
 
-@endsection
-@extends('layouts.app')
-
-@section('content')
-<div class="container py-12 mx-auto">
-    <h1 class="text-2xl font-bold mb-6">Messages reçus</h1>
-
-    <h2 class="text-xl font-semibold mt-4">Contacts</h2>
-    @foreach($contacts as $c)
-        <div class="p-3 bg-white rounded mb-2">
-            <strong>{{ $c->name }}</strong> - {{ $c->email }} - {{ $c->phone }}
-            <p class="mt-2">{{ $c->message }}</p>
-            <small class="text-gray-500">{{ $c->created_at }}</small>
+    <!-- Souscriptions aux offres -->
+    <div class="bg-white rounded-lg shadow-md mb-8 overflow-hidden">
+        <div class="bg-gradient-to-r from-cyan-600 to-blue-600 px-6 py-4">
+            <h2 class="text-xl font-bold text-white">Souscriptions aux Offres ({{ count($offres) }})</h2>
         </div>
-    @endforeach
-
-    <h2 class="text-xl font-semibold mt-6">Demandes de service</h2>
-    @foreach($services as $s)
-        <div class="p-3 bg-white rounded mb-2">
-            <strong>{{ $s->name }}</strong> - {{ $s->email }} - {{ $s->phone }}
-            <p class="mt-2">{{ $s->message }}</p>
-            <small class="text-gray-500">{{ $s->created_at }}</small>
+        <div class="p-6">
+            @forelse($offres as $o)
+                <div class="border-l-4 border-cyan-600 p-4 mb-4 bg-cyan-50 rounded">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-gray-900">{{ $o->name ?? '—' }}</h3>
+                            <p class="text-sm text-gray-600">{{ $o->email }}</p>
+                            @if($o->phone)
+                                <p class="text-sm text-gray-600">{{ $o->phone }}</p>
+                            @endif
+                        </div>
+                        <span class="text-xs bg-cyan-200 text-cyan-800 px-3 py-1 rounded-full">{{ $o->created_at->format('d/m/Y H:i') }}</span>
+                    </div>
+                    <div class="mt-3 space-y-1">
+                        @if($o->pack)
+                            <p class="text-sm text-gray-700"><strong>Pack:</strong> {{ $o->pack }}</p>
+                        @endif
+                        @if($o->message)
+                            <p class="text-gray-700">{{ $o->message }}</p>
+                        @endif
+                    </div>
+                </div>
+            @empty
+                <p class="text-gray-500 text-center py-8">Aucune souscription reçue</p>
+            @endforelse
         </div>
-    @endforeach
+    </div>
 
-    <h2 class="text-xl font-semibold mt-6">Souscriptions offres</h2>
-    @foreach($offres as $o)
-        <div class="p-3 bg-white rounded mb-2">
-            <strong>{{ $o->name }}</strong> - {{ $o->email }} - {{ $o->phone }}
-            <p class="mt-2">Salaire: {{ $o->salary }} - {{ $o->message }}</p>
-            <small class="text-gray-500">{{ $o->created_at }}</small>
+    <!-- Demandes de services -->
+    <div class="bg-white rounded-lg shadow-md mb-8 overflow-hidden">
+        <div class="bg-gradient-to-r from-green-600 to-teal-600 px-6 py-4">
+            <h2 class="text-xl font-bold text-white">Demandes de Services ({{ count($services) }})</h2>
         </div>
-    @endforeach
+        <div class="p-6">
+            @forelse($services as $s)
+                <div class="border-l-4 border-green-600 p-4 mb-4 bg-green-50 rounded">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-gray-900">{{ $s->name ?? '—' }}</h3>
+                            <p class="text-sm text-gray-600">{{ $s->email }}</p>
+                            @if($s->phone)
+                                <p class="text-sm text-gray-600">{{ $s->phone }}</p>
+                            @endif
+                        </div>
+                        <span class="text-xs bg-green-200 text-green-800 px-3 py-1 rounded-full">{{ $s->created_at->format('d/m/Y H:i') }}</span>
+                    </div>
+                    <p class="text-gray-700 mt-3">{{ $s->message ?? '(aucun message)' }}</p>
+                </div>
+            @empty
+                <p class="text-gray-500 text-center py-8">Aucune demande de service reçue</p>
+            @endforelse
+        </div>
+    </div>
 
-    <h2 class="text-xl font-semibold mt-6">Accompagnements</h2>
-    @foreach($accompagnements as $a)
-        <div class="p-3 bg-white rounded mb-2">
-            <strong>{{ $a->name }}</strong> - {{ $a->email }} - {{ $a->phone }}
-            <p class="mt-2">{{ $a->message }}</p>
-            <small class="text-gray-500">{{ $a->created_at }}</small>
+    <!-- Accompagnements -->
+    <div class="bg-white rounded-lg shadow-md mb-8 overflow-hidden">
+        <div class="bg-gradient-to-r from-purple-600 to-pink-600 px-6 py-4">
+            <h2 class="text-xl font-bold text-white">Accompagnements ({{ count($accompagnements) }})</h2>
         </div>
-    @endforeach
+        <div class="p-6">
+            @forelse($accompagnements as $a)
+                <div class="border-l-4 border-purple-600 p-4 mb-4 bg-purple-50 rounded">
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3 class="font-bold text-gray-900">{{ $a->name ?? '—' }}</h3>
+                            <p class="text-sm text-gray-600">{{ $a->email }}</p>
+                            @if($a->phone)
+                                <p class="text-sm text-gray-600">{{ $a->phone }}</p>
+                            @endif
+                        </div>
+                        <span class="text-xs bg-purple-200 text-purple-800 px-3 py-1 rounded-full">{{ $a->created_at->format('d/m/Y H:i') }}</span>
+                    </div>
+                    <p class="text-gray-700 mt-3">{{ $a->message ?? '(aucun message)' }}</p>
+                </div>
+            @empty
+                <p class="text-gray-500 text-center py-8">Aucun accompagnement reçu</p>
+            @endforelse
+        </div>
+    </div>
 </div>
 
 @endsection

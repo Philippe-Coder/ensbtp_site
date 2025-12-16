@@ -4,11 +4,11 @@
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">
                 <i class="fas fa-phone-alt text-blue-600"></i>
-                <a href="tel:+22500000000" class="font-medium text-gray-800">+225 00 00 00 00</a>
+                <a href="tel:+28890108803" class="font-medium text-gray-800">+288 90 10 88 03</a>
             </div>
             <div class="flex items-center gap-2">
                 <i class="fas fa-envelope text-cyan-600"></i>
-                <a href="mailto:contact@ensbtp.ci" class="text-gray-600">contact@ensbtp.ci</a>
+                <a href="mailto:ens.btp@yahoo.com" class="text-gray-600">ens.btp@yahoo.com</a>
             </div>
         </div>
         <div class="text-gray-500">Ouvert: Lun - Ven, 8:00 - 18:00</div>

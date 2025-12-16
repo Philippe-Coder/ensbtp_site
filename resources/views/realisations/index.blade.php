@@ -3,42 +3,28 @@
 @section('content')
 
 <!-- Hero Section Réalisations -->
-<section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800">
-    <!-- Background Effects -->
-    <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 left-0 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-600 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
-        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-orange-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-        
-        <!-- Geometric Pattern -->
-        <div class="absolute inset-0 opacity-5">
-            <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="80" height="80" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f59e0b" fill-opacity="0.4"%3E%3Cpath d="M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10S10 15.523 10 10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zM20 20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10zm20 20c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10-10-4.477-10-10z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
-        </div>
-    </div>
+<x-banner :images="['img8.jpg']">
+	<div class="relative max-w-6xl mx-auto">
+		<div class="absolute inset-0 bg-blue-900/35"></div>
+		<div class="relative text-center">
 
-    <div class="container mx-auto px-4 relative z-10 py-20">
-        <div class="max-w-6xl mx-auto">
-            <div class="text-center">
+			<!-- Main Title -->
+			<h1 class="text-5xl md:text-7xl font-bold text-blue-900 mb-6 leading-tight animate-slideInUp">
+				Nos 
+				<span class="text-blue-900">
+					Réalisations
+				</span>
+			</h1>
 
-                <!-- Main Title -->
-                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
-                    Nos 
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-blue-600">
-                        Réalisations
-                    </span>
-                </h1>
+			<!-- Subtitle -->
+			<p class="text-xl text-blue-900 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
+				Découvrez notre portfolio de projets accomplis. Chaque réalisation témoigne 
+				de notre expertise, notre savoir-faire et notre engagement envers l'excellence.
+			</p>
 
-                <!-- Subtitle -->
-                <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
-                    Découvrez notre portfolio de projets accomplis. Chaque réalisation témoigne 
-                    de notre expertise, notre savoir-faire et notre engagement envers l'excellence.
-                </p>
-
-               
-            </div>
-        </div>
-    </div>
-</section>
+		</div>
+	</div>
+</x-banner>
 
 <!-- Filter Navigation -->
 <section class="py-12 bg-white border-b border-gray-100 sticky top-0 z-30 backdrop-blur-sm bg-white/95">
@@ -54,24 +40,24 @@
                 </div>
 
                 <!-- Filter Buttons -->
-                <div class="flex flex-wrap gap-3 justify-center">
-                    <button class="filter-btn active px-6 py-3 bg-gradient-to-r from-blue-600 to-amber-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300" data-filter="all">
+                <div class="flex flex-wrap gap-2 sm:gap-3 justify-center">
+                    <button class="filter-btn active w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:bg-blue-800 transition-all duration-300" data-filter="all">
                         <i class="fas fa-th-large mr-2"></i>
                         Tous
                     </button>
-                    <button class="filter-btn px-6 py-3 bg-white border-2 border-blue-100 text-blue-700 font-semibold rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300" data-filter="construction">
+                    <button class="filter-btn w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-300" data-filter="construction">
                         <i class="fas fa-hard-hat mr-2"></i>
                         Construction
                     </button>
-                    <button class="filter-btn px-6 py-3 bg-white border-2 border-blue-100 text-blue-700 font-semibold rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300" data-filter="renovation">
+                    <button class="filter-btn w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-300" data-filter="renovation">
                         <i class="fas fa-hammer mr-2"></i>
                         Rénovation
                     </button>
-                    <button class="filter-btn px-6 py-3 bg-white border-2 border-blue-100 text-blue-700 font-semibold rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300" data-filter="architecture">
+                    <button class="filter-btn w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-300" data-filter="architecture">
                         <i class="fas fa-drafting-compass mr-2"></i>
                         Architecture
                     </button>
-                    <button class="filter-btn px-6 py-3 bg-white border-2 border-blue-100 text-blue-700 font-semibold rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-300" data-filter="travaux-publics">
+                    <button class="filter-btn w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-300" data-filter="travaux-publics">
                         <i class="fas fa-road mr-2"></i>
                         Travaux Publics
                     </button>
@@ -90,8 +76,10 @@
                 @foreach($realisations as $real)
                 <div class="project-card group animate-slideInUp" 
                      style="animation-delay: {{ $loop->index * 100 }}ms"
-                     data-category="{{ $real->category ?? 'construction' }}">
-                    <div class="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 h-full">
+                     data-category="{{ $real->category ?? 'construction' }}"
+                     onclick="window.location='{{ route('realisations.show', $real->slug) }}'"
+                     role="button">
+                    <div class="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 h-full cursor-pointer">
                         <!-- Project Image -->
                         <div class="relative h-64 overflow-hidden">
                             @if(is_array($real->media) && count($real->media))
@@ -191,7 +179,7 @@
                 <p class="text-gray-600 mb-8 max-w-md mx-auto">
                     Aucun projet ne correspond à cette catégorie. Essayez une autre catégorie ou consultez tous nos projets.
                 </p>
-                <button class="filter-btn active px-6 py-3 bg-gradient-to-r from-blue-600 to-amber-600 text-white font-semibold rounded-xl hover:shadow-lg transition-all duration-300" data-filter="all">
+                <button class="filter-btn active w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-blue-700 text-white font-semibold rounded-xl shadow-md hover:bg-blue-800 transition-all duration-300" data-filter="all">
                     <i class="fas fa-th-large mr-2"></i>
                     Voir tous les projets
                 </button>
@@ -356,14 +344,14 @@
         button.addEventListener('click', function() {
             const filter = this.dataset.filter;
             
-            // Update active button
+            // Update active button styles (all blue, active un peu plus foncé)
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active', 'bg-gradient-to-r', 'from-blue-600', 'to-amber-600', 'text-white');
-                btn.classList.add('bg-white', 'border-2', 'border-blue-100', 'text-blue-700');
+                btn.classList.remove('active', 'bg-blue-700', 'shadow-md');
+                btn.classList.add('bg-blue-600', 'text-white');
             });
-            
-            this.classList.remove('bg-white', 'border-2', 'border-blue-100', 'text-blue-700');
-            this.classList.add('active', 'bg-gradient-to-r', 'from-blue-600', 'to-amber-600', 'text-white');
+
+            this.classList.remove('bg-blue-600');
+            this.classList.add('active', 'bg-blue-700', 'shadow-md');
             
             // Filter projects
             const projects = document.querySelectorAll('.project-card');
@@ -388,6 +376,12 @@
                 noProjects.classList.remove('block');
                 noProjects.classList.add('hidden');
             }
+
+            // Scroll vers la grille pour bien voir le résultat du filtre
+            const grid = document.getElementById('projects-grid');
+            if (grid) {
+                grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
     
@@ -399,7 +393,7 @@
             category: 'Construction',
             description: 'Un projet de construction moderne avec des matériaux de haute qualité et une architecture innovante. Réalisation complète incluant la conception, la construction et l\'aménagement.',
             date: 'Mars 2023',
-            location: 'Abidjan, Plateau',
+            location: 'Lomé, Togo',
             duration: '6 mois',
             features: ['Architecture moderne', 'Matériaux écologiques', 'Équipements high-tech', 'Design intérieur sur mesure'],
             images: [
@@ -653,7 +647,7 @@
     }
     
     ::-webkit-scrollbar-thumb:hover {
-        background: linear-gradient(to bottom, #2563eb, #d97706);
+        background: linear-gradient(to bottom, #0242cbff, #d97706);
     }
 </style>
 @endpush

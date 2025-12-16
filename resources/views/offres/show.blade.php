@@ -50,7 +50,7 @@
 
                 <div class="mb-3">
                     <label class="block text-sm font-medium text-gray-700">Nom complet</label>
-                    <input name="nom" required class="w-full mt-1 border rounded px-3 py-2" placeholder="Votre nom">
+                    <input name="name" required class="w-full mt-1 border rounded px-3 py-2" placeholder="Votre nom">
                 </div>
 
                 <div class="mb-3">
@@ -60,7 +60,7 @@
 
                 <div class="mb-3">
                     <label class="block text-sm font-medium text-gray-700">Téléphone</label>
-                    <input name="telephone" class="w-full mt-1 border rounded px-3 py-2" placeholder="+228 90 ...">
+                    <input name="phone" class="w-full mt-1 border rounded px-3 py-2" placeholder="+288 90 10 88 03">
                 </div>
 
                 <div class="mb-3">

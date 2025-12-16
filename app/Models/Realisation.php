@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\Sluggable;
 
 class Realisation extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     protected $fillable = [
         'title',
@@ -15,6 +16,8 @@ class Realisation extends Model
         'excerpt',
         'content',
         'media',
+        'image',
+        'category',
         'published_at',
     ];
 

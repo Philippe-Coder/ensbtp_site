@@ -36,4 +36,28 @@ class FormOffreController extends Controller
 
         return back()->with('success', 'Votre demande a été reçue. Nous vous contacterons bientôt.');
     }
+
+    public function subscribe(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'phone' => 'nullable|string|max:50',
+            'salary_range' => 'nullable|string|max:255',
+        ]);
+
+        FormOffre::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phone' => $data['phone'] ?? null,
+            'salary' => $data['salary_range'] ?? null,
+            'message' => 'Demande de souscription aux offres',
+        ]);
+
+        if ($request->expectsJson()) {
+            return response()->json(['success' => true, 'message' => 'Abonnement enregistré avec succès']);
+        }
+
+        return back()->with('success', 'Votre abonnement a été enregistré. Nous vous contacterons bientôt.');
+    }
 }

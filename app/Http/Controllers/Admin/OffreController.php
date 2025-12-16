@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Offre;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class OffreController extends Controller
 {
@@ -24,12 +24,18 @@ class OffreController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:offres,slug',
             'description' => 'nullable|string',
             'price' => 'nullable|string|max:50',
+            'category' => 'nullable|string|max:100',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
         ]);
 
-        $data['slug'] = $data['slug'] ?? Str::slug($data['title']);
+        // Upload image if provided
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('offres', 'public');
+            $data['image'] = Storage::url($path);
+        }
+
         Offre::create($data);
         return redirect()->route('admin.offres.index')->with('success', 'Offre créée');
     }
@@ -43,12 +49,18 @@ class OffreController extends Controller
     {
         $data = $request->validate([
             'title' => 'required|string|max:255',
-            'slug' => 'nullable|string|max:255|unique:offres,slug,' . $offre->id,
             'description' => 'nullable|string',
             'price' => 'nullable|string|max:50',
+            'category' => 'nullable|string|max:100',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:5120',
         ]);
 
-        $data['slug'] = $data['slug'] ?? Str::slug($data['title']);
+        // Upload image if provided
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('offres', 'public');
+            $data['image'] = Storage::url($path);
+        }
+
         $offre->update($data);
 
         return redirect()->route('admin.offres.index')->with('success', 'Offre mise à jour');
