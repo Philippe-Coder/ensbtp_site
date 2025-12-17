@@ -183,12 +183,14 @@
             </div>
 
             @if($posts->count() > 0)
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+
                 @foreach($posts->skip(1) as $post)
                 <article class="group animate-slideInUp" style="animation-delay: {{ $loop->index * 100 }}ms">
-                    <div class="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 h-full">
+                    <div class="relative bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 h-full flex flex-col">
                         <!-- Article Header -->
-                        <div class="relative h-48 overflow-hidden">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+
                             <div class="absolute inset-0 bg-gradient-to-br from-blue-500 to-emerald-600"></div>
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <i class="fas fa-file-alt text-white/30 text-8xl group-hover:scale-110 transition-transform duration-700"></i>
@@ -208,9 +210,11 @@
                         </div>
 
                         <!-- Article Content -->
-                        <div class="p-6">
+                        <div class="p-4 md:p-5 flex-1 flex flex-col">
+
                             <!-- Categories -->
-                            <div class="flex flex-wrap gap-2 mb-4">
+                            <div class="flex flex-wrap gap-2 mb-3">
+
                                 @php
                                     $categories = ['Construction', 'Financement', 'Conseils'];
                                     $category = $categories[array_rand($categories)];
@@ -221,17 +225,20 @@
                             </div>
 
                             <!-- Title -->
-                            <h3 class="text-xl font-bold text-gray-900 mb-4 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">
+                            <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-blue-700 transition-colors duration-300">
+
                                 {{ $post->title }}
                             </h3>
 
                             <!-- Excerpt -->
-                            <p class="text-gray-600 mb-6 line-clamp-3 leading-relaxed">
+                            <p class="text-gray-600 mb-4 line-clamp-3 leading-relaxed">
+
                                 {{ Str::limit(strip_tags($post->content), 120) }}
                             </p>
 
                             <!-- Footer -->
-                            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <div class="mt-auto flex items-center justify-between pt-3 border-t border-gray-100">
+
                                 <div class="flex items-center">
                                     <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center mr-3">
                                         <i class="fas fa-user text-blue-600 text-sm"></i>
@@ -321,11 +328,11 @@
 </section>
 
 <!-- Newsletter Subscription -->
-<section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-emerald-900 relative overflow-hidden">
+<section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
     <!-- Background Effects -->
     <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/10 to-emerald-600/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-emerald-600/10 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/20 to-blue-700/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-700/20 to-blue-500/20 rounded-full blur-3xl"></div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
@@ -337,7 +344,7 @@
             
             <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
                 Ne manquez pas nos 
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-blue-400">
+                <span class="text-blue-300">
                     prochains articles
                 </span>
             </h2>
@@ -349,15 +356,15 @@
             
             <form method="POST" action="{{ route('newsletter.subscribe') }}" class="max-w-lg mx-auto">
                 @csrf
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                     <input type="email" 
                            name="email"
                            placeholder="Votre adresse email" 
                            required
-                           class="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30 transition-all duration-300">
+                           class="w-full max-w-xs sm:max-w-[14rem] px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30 transition-all duration-300">
                     
                     <button type="submit" 
-                            class="px-8 py-4 bg-gradient-to-r from-emerald-500 to-blue-600 text-white font-bold rounded-2xl hover:from-emerald-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
+                            class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center gap-3">
                         <i class="fas fa-paper-plane"></i>
                         <span>S'abonner</span>
                     </button>

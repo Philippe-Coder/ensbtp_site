@@ -27,7 +27,7 @@ Route::get('/', function () {
     $realisations = Realisation::latest()->take(6)->get();
 
     return view('home', compact('services', 'realisations'));
-});
+})->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

@@ -11,14 +11,28 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-10 sm:-my-px sm:ms-12 sm:flex items-center">
-                    <a href="{{ url('/') }}" class="text-base font-medium text-gray-800 hover:text-blue-700 px-8 py-2 transition-colors duration-200 {{ request()->is('/') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Accueil</a>
-                    <a href="{{ url('/about') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('about') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">À propos</a>
-                    <a href="{{ url('/services') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('services*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Services</a>
-                    <a href="{{ url('/realisations') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('realisations*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Réalisations</a>
-                    <a href="{{ url('/offres') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('offres*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Offres</a>
-                    <a href="{{ url('/blog') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('blog*') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Blog</a>
-                    <a href="{{ url('/contact') }}" class="text-base font-medium text-gray-700 hover:text-blue-700 px-3 py-2 transition-colors duration-200 {{ request()->is('contact') ? 'font-semibold text-blue-700 border-b-2 border-blue-600 pb-1' : '' }}">Contact</a>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-xl items-center">
+                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="text-xl">
+                        Accueil
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="text-xl">
+                        À propos
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('services.index') }}" :active="request()->routeIs('services.index')" class="text-xl">
+                        Services
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('realisations.index') }}" :active="request()->routeIs('realisations.*')" class="text-xl">
+                        Réalisations
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('offres.index') }}" :active="request()->routeIs('offres.*')" class="text-xl">
+                        Offres
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.*')" class="text-xl">
+                        Blog
+                    </x-nav-link>
+                    <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')" class="text-xl">
+                        Contact
+                    </x-nav-link>
                 </div>
             </div>
 

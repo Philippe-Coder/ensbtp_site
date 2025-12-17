@@ -1,5 +1,5 @@
 <!-- Header partial: includes top contact bar and the main navigation -->
-<div class="w-full bg-gradient-to-r from-white to-white/95 shadow-sm">
+<div class="w-full bg-gradient-to-r from-white to-white/95 shadow-sm fixed top-0 left-0 z-50">
     <div class="container mx-auto px-4 py-2 hidden md:flex items-center justify-between text-sm text-gray-700">
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-2">

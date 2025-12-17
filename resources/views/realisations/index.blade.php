@@ -286,17 +286,17 @@
 </div>
 
 <!-- CTA Contact -->
-<section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-amber-900 relative overflow-hidden">
+<section class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
     <!-- Background Effects -->
     <div class="absolute inset-0 z-0">
-        <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/10 to-amber-600/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-amber-600/10 to-blue-500/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-500/20 to-blue-700/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-blue-700/20 to-blue-500/20 rounded-full blur-3xl"></div>
     </div>
 
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
             <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-8 py-4 mb-8 border border-white/20 shadow-2xl">
-                <i class="fas fa-handshake text-amber-300 text-xl"></i>
+                <i class="fas fa-handshake text-blue-300 text-xl"></i>
                 <span class="font-bold text-white text-lg">VOTRE PROJET SUIVANT ?</span>
             </div>
             

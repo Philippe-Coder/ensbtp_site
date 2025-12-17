@@ -31,7 +31,7 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+            <main class="pt-28">
                 @hasSection('content')
                     @yield('content')
                 @elseif(isset($slot))

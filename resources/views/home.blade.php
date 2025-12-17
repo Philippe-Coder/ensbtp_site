@@ -17,9 +17,9 @@
         <div class="text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
             <div class="md:w-1/2 space-y-8">
                 <!-- Badge d'élite -->
-                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-6 py-3 border border-white/20 shadow-2xl shadow-blue-900/30 animate-slideInLeft">
+                <div class="inline-flex items-center gap-3 bg-white/10 backdrop-blur-lg rounded-full px-8 py-4 border border-white/20 shadow-2xl shadow-blue-900/30 animate-slideInLeft">
                     <div class="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full animate-ping"></div>
-                    <span class="font-semibold text-white text-sm tracking-wider">SOLUTIONS DE CONSTRUCTION EXPERTES</span>
+                    <span class="font-semibold text-white text-base md:text-lg tracking-wider">SOLUTIONS DE CONSTRUCTION EXPERTES</span>
                 </div>
 
                 <!-- Titre principal -->
@@ -31,7 +31,7 @@
                 </h1>
 
                 <!-- Sous-titre -->
-                <p class="text-xl text-blue-100 leading-relaxed max-w-2xl animate-fadeIn">
+                <p class="text-2xl md:text-3xl text-blue-100 leading-relaxed max-w-2xl animate-fadeIn">
                     ENSBTP SARLU transforme vos projets immobiliers en réalités durables avec un accompagnement technique et financier sur-mesure.
                 </p>
 
@@ -98,19 +98,19 @@
     
     <div class="container mx-auto px-4 relative z-10">
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="text-center max-w-3xl mx-auto mb-14">
             <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-100 to-blue-50 rounded-full px-6 py-3 mb-6 border border-blue-200 shadow-lg">
                 <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                 <span class="font-bold text-blue-700 tracking-wider">NOS DOMAINES D'EXPERTISE</span>
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+            <h2 class="text-6xl md:text-7xl font-bold text-gray-900 mb-8">
                 Services 
                 <span class="relative">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600">Premium</span>
                     <span class="absolute -bottom-2 left-0 w-full h-1 bg-blue-600 rounded-full"></span>
                 </span>
             </h2>
-            <p class="text-xl text-gray-600 leading-relaxed">
+            <p class="text-2xl text-gray-600 leading-relaxed">
                 Des solutions complètes et innovantes pour tous vos projets de construction, 
                 de la conception à la réalisation.
             </p>
@@ -189,13 +189,13 @@
 <section id="realisations" class="py-20 bg-gradient-to-b from-blue-50/40 to-white">
     <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-12">
+            <div class="text-center max-w-3xl mx-auto mb-14">
                 <div class="inline-flex items-center gap-2 bg-blue-100 rounded-full px-6 py-3 mb-4 border border-blue-200">
                     <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                     <span class="font-bold text-blue-700 tracking-wider">NOS RÉALISATIONS RÉCENTES</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Découvrez Nos Projets</h2>
-                <p class="text-lg text-gray-600">Un aperçu des chantiers réalisés par ENSBTP SARLU. Chaque projet reflète notre exigence de qualité et de durabilité.</p>
+                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Découvrez Nos Projets</h2>
+                <p class="text-2xl text-gray-600">Un aperçu des chantiers réalisés par ENSBTP SARLU. Chaque projet reflète notre exigence de qualité et de durabilité.</p>
             </div>
 
             @if(isset($realisations) && $realisations->count())
@@ -264,19 +264,19 @@
 <section id="packs" class="py-20 bg-white relative overflow-hidden">
     <div class="container mx-auto px-4 relative z-10">
         <!-- Section Header -->
-        <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="text-center max-w-3xl mx-auto mb-18">
             <div class="inline-flex items-center gap-2 bg-blue-100 rounded-full px-8 py-4 mb-8 shadow-xl border border-blue-200">
                 <i class="fas fa-crown text-blue-600 text-lg"></i>
                 <span class="font-bold text-blue-700 tracking-wider text-lg">CHOIX DE PACKS EXCLUSIFS</span>
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h2 class="text-6xl md:text-7xl font-bold text-gray-900 mb-6">
                 Packs 
                 <span class="relative">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600">Sur Mesure</span>
                     <span class="absolute -bottom-2 left-0 w-full h-1 bg-blue-600 rounded-full"></span>
                 </span>
             </h2>
-            <p class="text-xl text-gray-600 leading-relaxed">
+            <p class="text-2xl text-gray-600 leading-relaxed">
                 Choisissez le pack qui correspond parfaitement à votre budget et à vos ambitions
             </p>
         </div>
@@ -352,13 +352,13 @@
 <section id="devis" class="py-20 bg-gray-100">
     <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-100 p-8 md:p-10">
-            <div class="text-center mb-10">
+            <div class="text-center mb-12">
                 <div class="inline-flex items-center gap-2 bg-blue-50 rounded-full px-6 py-2 mb-4 border border-blue-100">
                     <i class="fas fa-file-invoice-dollar text-blue-600"></i>
                     <span class="font-semibold text-blue-700 text-sm uppercase tracking-wide">Demande de devis gratuit</span>
                 </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">Obtenez une estimation pour votre projet</h2>
-                <p class="text-gray-600">Remplissez ce formulaire avec les informations principales de votre projet. Notre équipe vous recontactera rapidement avec une proposition adaptée.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Obtenez une estimation pour votre projet</h2>
+                <p class="text-lg md:text-xl text-gray-600">Remplissez ce formulaire avec les informations principales de votre projet. Notre équipe vous recontactera rapidement avec une proposition adaptée.</p>
             </div>
 
             <form method="POST" action="{{ route('service.store') }}" class="space-y-6">
@@ -433,7 +433,7 @@
 </section>
 
 <!-- Contact Section avec formulaire moderne -->
-<section id="contact" class="py-20 bg-blue-600 relative overflow-hidden">
+<section id="contact" class="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 relative overflow-hidden">
     <!-- Background Effects -->
     <div class="absolute inset-0 z-0 opacity-10">
         <div class="absolute top-0 left-0 w-1/3 h-1/3 bg-blue-900 rounded-full blur-3xl"></div>
@@ -443,17 +443,17 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-lg rounded-full px-8 py-4 mb-8 border border-white/30 shadow-2xl">
-                    <i class="fas fa-comment-dots text-white text-xl"></i>
-                    <span class="font-bold text-white text-lg">PRÊT À COMMENCER ?</span>
+                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-lg rounded-full px-10 py-5 mb-8 border border-white/30 shadow-2xl">
+                    <i class="fas fa-comment-dots text-white text-2xl"></i>
+                    <span class="font-bold text-white text-xl">PRÊT À COMMENCER ?</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                <h2 class="text-6xl md:text-7xl font-bold text-white mb-6">
                     Contactez-Nous
-                    <span class="block text-blue-100">
+                    <span class="block text-blue-100 text-3xl md:text-4xl">
                         Dès Maintenant
                     </span>
                 </h2>
-                <p class="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-2xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
                     Prenez contact avec notre équipe d'experts pour discuter de votre projet
                 </p>
             </div>
