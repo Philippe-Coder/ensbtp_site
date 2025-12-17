@@ -8,7 +8,7 @@
         <div class="text-center">
 
             <!-- Main Title -->
-            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight animate-slideInUp">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight animate-slideInUp">
                 Construire l'Excellence,
                 <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-600">
                     Forger la Confiance
@@ -16,7 +16,7 @@
             </h1>
 
             <!-- Subtitle -->
-            <p class="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
+            <p class="text-lg text-blue-100 leading-relaxed max-w-3xl mx-auto mb-12 animate-fadeIn">
                 Découvrez l'histoire, la mission et les valeurs qui font de ENSBTP SARLU 
                 votre partenaire de confiance pour tous vos projets de construction.
             </p>
@@ -67,7 +67,7 @@
                         <span class="font-bold text-blue-700 tracking-wider">NOTRE HISTOIRE</span>
                     </div>
 
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
                         Une Histoire de
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
                             Passion & Innovation
@@ -75,18 +75,18 @@
                     </h2>
 
                     <div class="space-y-6">
-                        <p class="text-2xl text-gray-700 leading-relaxed">
+                        <p class="text-lg text-gray-700 leading-relaxed">
                             Fondée en 2008, <span class="font-semibold text-blue-700">ENSBTP SARLU</span> est née d'une vision simple mais ambitieuse : 
                             démocratiser l'accès à la propriété immobilière de qualité en Côte d'Ivoire et dans la sous-région.
                         </p>
                         
-                        <p class="text-2xl text-gray-700 leading-relaxed">
+                        <p class="text-lg text-gray-700 leading-relaxed">
                             Depuis plus de 15 ans, nous avons évolué d'une petite entreprise familiale à un acteur majeur 
                             du secteur de la construction, tout en conservant nos valeurs fondamentales d'intégrité, 
                             de qualité et d'engagement client.
                         </p>
                         
-                        <p class="text-2xl text-gray-700 leading-relaxed">
+                        <p class="text-lg text-gray-700 leading-relaxed">
                             Notre parcours est jalonné de réussites, d'innovations et surtout, de relations durables 
                             avec nos clients qui nous font confiance projet après projet.
                         </p>
@@ -112,13 +112,13 @@
                 <i class="fas fa-bullseye text-white text-lg"></i>
                 <span class="font-bold text-white tracking-wider text-lg">NOTRE RAISON D'ÊTRE</span>
             </div>
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                 Mission & 
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
                     Vision
                 </span>
             </h2>
-            <p class="text-2xl text-gray-600 leading-relaxed">
+            <p class="text-lg text-gray-600 leading-relaxed">
                 Les piliers fondamentaux qui guident chacune de nos actions
             </p>
         </div>
@@ -135,13 +135,13 @@
                                     <i class="fas fa-flag text-white text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-3xl font-bold text-gray-900">Notre Mission</h3>
+                                    <h3 class="text-2xl font-bold text-gray-900">Notre Mission</h3>
                                     <div class="w-20 h-1 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full mt-2"></div>
                                 </div>
                             </div>
                             
                             <div class="space-y-6">
-                                <p class="text-2xl text-gray-700 leading-relaxed">
+                                <p class="text-lg text-gray-700 leading-relaxed">
                                     <span class="font-semibold text-blue-700">Transformer les rêves immobiliers en réalités durables</span> 
                                     en offrant des solutions de construction innovantes, financièrement accessibles 
                                     et techniquement excellentes.
@@ -196,13 +196,13 @@
                                     <i class="fas fa-eye text-white text-2xl"></i>
                                 </div>
                                 <div>
-                                    <h3 class="text-3xl font-bold text-gray-900">Notre Vision</h3>
+                                    <h3 class="text-2xl font-bold text-gray-900">Notre Vision</h3>
                                     <div class="w-20 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mt-2"></div>
                                 </div>
                             </div>
                             
                             <div class="space-y-6">
-                                <p class="text-2xl text-gray-700 leading-relaxed">
+                                <p class="text-lg text-gray-700 leading-relaxed">
                                     <span class="font-semibold text-cyan-700">Devenir le leader incontesté de la construction intelligente et durable</span> 
                                     en Afrique de l'Ouest, en redéfinissant les standards du secteur 
                                     par l'innovation et l'excellence.
@@ -258,13 +258,13 @@
                     <div class="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-full"></div>
                     <span class="font-bold text-blue-700 tracking-wider">NOTRE ADN</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
                     Les Valeurs qui
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-600">
                         Nous Animent
                     </span>
                 </h2>
-                <p class="text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                <p class="text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                     Des principes intangibles qui guident chacune de nos décisions et actions
                 </p>
             </div>
@@ -286,10 +286,10 @@
                             </div>
                             
                             <!-- Title -->
-                            <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ $value['title'] }}</h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $value['title'] }}</h3>
                             
                             <!-- Description -->
-                            <p class="text-2xl text-gray-600 flex-grow">{{ $value['desc'] }}</p>
+                            <p class="text-lg text-gray-600 flex-grow">{{ $value['desc'] }}</p>
                             
                             <!-- Divider -->
                             <div class="w-16 h-1 bg-gradient-to-r {{ $value['color'] }} rounded-full mt-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -312,14 +312,14 @@
 
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">
                 Prêt à concrétiser 
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
                     votre projet ?
                 </span>
             </h2>
             
-            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p class="text-lg text-blue-100 mb-12 max-w-2xl mx-auto leading-relaxed">
                 Rejoignez les centaines de clients satisfaits qui nous font confiance pour transformer leurs visions en réalité.
             </p>
             

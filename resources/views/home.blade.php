@@ -443,17 +443,17 @@
     <div class="container mx-auto px-4 relative z-10">
         <div class="max-w-6xl mx-auto">
             <div class="text-center mb-16">
-                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-lg rounded-full px-10 py-5 mb-8 border border-white/30 shadow-2xl">
-                    <i class="fas fa-comment-dots text-white text-2xl"></i>
-                    <span class="font-bold text-white text-lg">PRÊT À COMMENCER ?</span>
+                <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-lg rounded-full px-8 py-4 mb-8 border border-white/30 shadow-2xl">
+                    <i class="fas fa-comment-dots text-white text-xl"></i>
+                    <span class="font-bold text-white text-base">PRÊT À COMMENCER ?</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
                     Contactez-Nous
-                    <span class="block text-blue-100 text-2xl md:text-3xl">
+                    <span class="block text-blue-100 text-xl md:text-2xl">
                         Dès Maintenant
                     </span>
                 </h2>
-                <p class="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-lg text-blue-100 leading-relaxed max-w-2xl mx-auto">
                     Prenez contact avec notre équipe d'experts pour discuter de votre projet
                 </p>
             </div>
@@ -468,11 +468,11 @@
                                 <i class="fas fa-phone-alt text-white text-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-1">Téléphone</h3>
-                                <p class="text-blue-100">Disponible 24/7 pour vos urgences</p>
+                                <h3 class="text-lg font-bold text-white mb-1">Téléphone</h3>
+                                <p class="text-blue-100 text-sm">Disponible 24/7 pour vos urgences</p>
                             </div>
                         </div>
-                        <a href="tel:+28890108803" class="text-2xl font-bold text-white hover:text-blue-200 transition-colors duration-300">
+                        <a href="tel:+28890108803" class="text-xl font-bold text-white hover:text-blue-200 transition-colors duration-300">
                             +288 90 10 88 03/ 90 0797 91
                         </a>
                     </div>
@@ -484,11 +484,11 @@
                                 <i class="fas fa-envelope text-white text-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-1">Email</h3>
-                                <p class="text-blue-100">Réponse sous 24h maximum</p>
+                                <h3 class="text-lg font-bold text-white mb-1">Email</h3>
+                                <p class="text-blue-100 text-sm">Réponse sous 24h maximum</p>
                             </div>
                         </div>
-                        <a href="mailto:ens.btp@yahoo.com" class="text-xl font-bold text-white hover:text-blue-200 transition-colors duration-300">
+                        <a href="mailto:ens.btp@yahoo.com" class="text-lg font-bold text-white hover:text-blue-200 transition-colors duration-300">
                             ens.btp@yahoo.com
                         </a>
                     </div>
@@ -500,11 +500,11 @@
                                 <i class="fas fa-map-marker-alt text-white text-2xl"></i>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-1">Adresse</h3>
-                                <p class="text-blue-100">Rendez-vous sur site possible</p>
+                                <h3 class="text-lg font-bold text-white mb-1">Adresse</h3>
+                                <p class="text-blue-100 text-sm">Rendez-vous sur site possible</p>
                             </div>
                         </div>
-                        <p class="text-lg text-white">
+                        <p class="text-base text-white">
                             Lomé, Togo<br>
                             <span class="text-blue-100">Agoè Assiyéyé derrière Total MINAMADOU 2</span>
                         </p>
