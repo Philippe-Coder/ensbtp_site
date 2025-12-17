@@ -293,35 +293,140 @@
                     </div>
                 </div>
 
-                <!-- Recent Activity -->
+                <!-- Derniers messages reçus -->
                 <div class="bg-white rounded-xl shadow-lg border border-gray-100 p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Activité récente</h2>
-                    <div class="space-y-4">
-                        @php
-                            $recentActivities = [
-                                ['icon' => 'fa-building', 'color' => 'text-blue-500', 'title' => 'Nouvelle réalisation ajoutée', 'time' => 'Il y a 2 heures', 'user' => 'Admin'],
-                                ['icon' => 'fa-newspaper', 'color' => 'text-green-500', 'title' => 'Article publié', 'time' => 'Il y a 5 heures', 'user' => 'Admin'],
-                                ['icon' => 'fa-file-signature', 'color' => 'text-purple-500', 'title' => 'Nouvelle souscription', 'time' => 'Il y a 1 jour', 'user' => 'Client'],
-                                ['icon' => 'fa-comment', 'color' => 'text-amber-500', 'title' => 'Message reçu', 'time' => 'Il y a 2 jours', 'user' => 'Visiteur'],
-                            ];
-                        @endphp
-                        
-                        @foreach($recentActivities as $activity)
-                        <div class="flex items-center p-4 rounded-lg border border-gray-100 hover:bg-gray-50 transition-colors duration-300">
-                            <div class="w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center mr-4">
-                                <i class="fas {{ $activity['icon'] }} {{ $activity['color'] }}"></i>
+                    <h2 class="text-xl font-bold text-gray-900 mb-4">Derniers messages reçus</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- Contacts -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-envelope text-blue-500 mr-2"></i>
+                                Contacts
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-sm">
+                                    <thead>
+                                        <tr class="text-left text-gray-500 border-b">
+                                            <th class="py-2 pr-2">Nom</th>
+                                            <th class="py-2 pr-2">Email</th>
+                                            <th class="py-2 pr-2">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recentContacts as $contact)
+                                            <tr class="border-b last:border-0">
+                                                <td class="py-2 pr-2 text-gray-800">{{ $contact->name }}</td>
+                                                <td class="py-2 pr-2 text-gray-600">{{ $contact->email }}</td>
+                                                <td class="py-2 pr-2 text-gray-500">{{ $contact->created_at->format('d/m/Y H:i') }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="py-3 text-gray-500 italic">Aucun message de contact pour le moment.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
                             </div>
-                            <div class="flex-1">
-                                <h4 class="font-medium text-gray-900">{{ $activity['title'] }}</h4>
-                                <p class="text-sm text-gray-500">{{ $activity['user'] }} • {{ $activity['time'] }}</p>
-                            </div>
-                            <button class="text-gray-400 hover:text-gray-600">
-                                <i class="fas fa-ellipsis-v"></i>
-                            </button>
                         </div>
-                        @endforeach
+
+                        <!-- Demandes de services / devis -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center">
+                                <i class="fas fa-file-invoice-dollar text-blue-500 mr-2"></i>
+                                Demandes de services / devis
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-sm">
+                                    <thead>
+                                        <tr class="text-left text-gray-500 border-b">
+                                            <th class="py-2 pr-2">Nom</th>
+                                            <th class="py-2 pr-2">Email</th>
+                                            <th class="py-2 pr-2">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recentServices as $service)
+                                            <tr class="border-b last:border-0">
+                                                <td class="py-2 pr-2 text-gray-800">{{ $service->name }}</td>
+                                                <td class="py-2 pr-2 text-gray-600">{{ $service->email }}</td>
+                                                <td class="py-2 pr-2 text-gray-500">{{ $service->created_at->format('d/m/Y H:i') }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="py-3 text-gray-500 italic">Aucune demande de service pour le moment.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Souscriptions aux offres -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center mt-4 lg:mt-0">
+                                <i class="fas fa-file-signature text-blue-500 mr-2"></i>
+                                Souscriptions aux offres
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-sm">
+                                    <thead>
+                                        <tr class="text-left text-gray-500 border-b">
+                                            <th class="py-2 pr-2">Nom</th>
+                                            <th class="py-2 pr-2">Email</th>
+                                            <th class="py-2 pr-2">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recentOffres as $offre)
+                                            <tr class="border-b last:border-0">
+                                                <td class="py-2 pr-2 text-gray-800">{{ $offre->name ?? $offre->full_name ?? '—' }}</td>
+                                                <td class="py-2 pr-2 text-gray-600">{{ $offre->email ?? '—' }}</td>
+                                                <td class="py-2 pr-2 text-gray-500">{{ $offre->created_at->format('d/m/Y H:i') }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="py-3 text-gray-500 italic">Aucune souscription pour le moment.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Demandes d'accompagnement -->
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3 flex items-center mt-4 lg:mt-0">
+                                <i class="fas fa-hands-helping text-blue-500 mr-2"></i>
+                                Demandes d'accompagnement
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="min-w-full text-sm">
+                                    <thead>
+                                        <tr class="text-left text-gray-500 border-b">
+                                            <th class="py-2 pr-2">Nom</th>
+                                            <th class="py-2 pr-2">Email</th>
+                                            <th class="py-2 pr-2">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($recentAccompagnements as $acc)
+                                            <tr class="border-b last:border-0">
+                                                <td class="py-2 pr-2 text-gray-800">{{ $acc->name ?? '—' }}</td>
+                                                <td class="py-2 pr-2 text-gray-600">{{ $acc->email ?? '—' }}</td>
+                                                <td class="py-2 pr-2 text-gray-500">{{ $acc->created_at->format('d/m/Y H:i') }}</td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="3" class="py-3 text-gray-500 italic">Aucune demande d'accompagnement pour le moment.</td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </main>
     </div>
@@ -401,11 +506,6 @@
                 // Hide loading
                 document.getElementById('loadingOverlay').classList.remove('flex');
                 document.getElementById('loadingOverlay').classList.add('hidden');
-            }
-            
-            // Close sidebar on mobile after navigation
-            if (window.innerWidth < 768) {
-                toggleSidebar();
             }
         });
     });

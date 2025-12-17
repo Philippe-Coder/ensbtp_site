@@ -14,16 +14,33 @@ class AdminController extends Controller
 {
     public function dashboard()
     {
+        $servicesCount = FormService::count();
+        $offresCount = FormOffre::count();
+        $accompagnementsCount = FormAccompagnement::count();
+        $contactsCount = FormContact::count();
+
         $counts = [
             'realisations' => Realisation::count(),
             'posts' => Post::count(),
-            'services_requests' => FormService::count(),
-            'offre_subscriptions' => FormOffre::count(),
-            'accompagnements' => FormAccompagnement::count(),
-            'contacts' => FormContact::count(),
+            'services_requests' => $servicesCount,
+            'offre_subscriptions' => $offresCount,
+            'accompagnements' => $accompagnementsCount,
+            'contacts' => $contactsCount,
+            'messages' => $servicesCount + $offresCount + $accompagnementsCount + $contactsCount,
         ];
 
-        return view('admin.dashboard', compact('counts'));
+        $recentServices = FormService::latest()->take(5)->get();
+        $recentOffres = FormOffre::latest()->take(5)->get();
+        $recentAccompagnements = FormAccompagnement::latest()->take(5)->get();
+        $recentContacts = FormContact::latest()->take(5)->get();
+
+        return view('admin.dashboard', [
+            'counts' => $counts,
+            'recentServices' => $recentServices,
+            'recentOffres' => $recentOffres,
+            'recentAccompagnements' => $recentAccompagnements,
+            'recentContacts' => $recentContacts,
+        ]);
     }
 
     public function createRealisation()
