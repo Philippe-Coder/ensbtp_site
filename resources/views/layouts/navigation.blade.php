@@ -11,26 +11,26 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-xl items-center">
-                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="text-xl">
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-lg items-center">
+                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')" class="text-lg">
                         Accueil
                     </x-nav-link>
-                    <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="text-xl">
+                    <x-nav-link href="{{ route('about') }}" :active="request()->routeIs('about')" class="text-lg">
                         À propos
                     </x-nav-link>
-                    <x-nav-link href="{{ route('services.index') }}" :active="request()->routeIs('services.index')" class="text-xl">
+                    <x-nav-link href="{{ route('services.index') }}" :active="request()->routeIs('services.index')" class="text-lg">
                         Services
                     </x-nav-link>
-                    <x-nav-link href="{{ route('realisations.index') }}" :active="request()->routeIs('realisations.*')" class="text-xl">
+                    <x-nav-link href="{{ route('realisations.index') }}" :active="request()->routeIs('realisations.*')" class="text-lg">
                         Réalisations
                     </x-nav-link>
-                    <x-nav-link href="{{ route('offres.index') }}" :active="request()->routeIs('offres.*')" class="text-xl">
+                    <x-nav-link href="{{ route('offres.index') }}" :active="request()->routeIs('offres.*')" class="text-lg">
                         Offres
                     </x-nav-link>
-                    <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.*')" class="text-xl">
+                    <x-nav-link href="{{ route('blog.index') }}" :active="request()->routeIs('blog.*')" class="text-lg">
                         Blog
                     </x-nav-link>
-                    <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')" class="text-xl">
+                    <x-nav-link href="{{ route('contact') }}" :active="request()->routeIs('contact')" class="text-lg">
                         Contact
                     </x-nav-link>
                 </div>

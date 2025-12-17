@@ -23,7 +23,7 @@
                 </div>
 
                 <!-- Titre principal -->
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight animate-slideInUp">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight animate-slideInUp">
                     <span class="block text-white mb-4">Construire</span>
                     <span class="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-blue-600">
                         L'Avenir Ensemble
@@ -31,7 +31,7 @@
                 </h1>
 
                 <!-- Sous-titre -->
-                <p class="text-2xl md:text-3xl text-blue-100 leading-relaxed max-w-2xl animate-fadeIn">
+                <p class="text-xl md:text-2xl text-blue-100 leading-relaxed max-w-2xl animate-fadeIn">
                     ENSBTP SARLU transforme vos projets immobiliers en réalités durables avec un accompagnement technique et financier sur-mesure.
                 </p>
 
@@ -54,7 +54,7 @@
                 </div>
 
                 <!-- Stats en ligne -->
-                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/10">
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-white/10 text-sm">
                     <div class="text-center">
                         <div class="text-3xl font-bold text-white mb-1">20%</div>
                         <div class="text-sm text-blue-200">Prise en Charge</div>
@@ -103,14 +103,14 @@
                 <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                 <span class="font-bold text-blue-700 tracking-wider">NOS DOMAINES D'EXPERTISE</span>
             </div>
-            <h2 class="text-6xl md:text-7xl font-bold text-gray-900 mb-8">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
                 Services 
                 <span class="relative">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600">Premium</span>
                     <span class="absolute -bottom-2 left-0 w-full h-1 bg-blue-600 rounded-full"></span>
                 </span>
             </h2>
-            <p class="text-2xl text-gray-600 leading-relaxed">
+            <p class="text-xl text-gray-600 leading-relaxed">
                 Des solutions complètes et innovantes pour tous vos projets de construction, 
                 de la conception à la réalisation.
             </p>
@@ -194,8 +194,8 @@
                     <div class="w-2 h-2 bg-blue-600 rounded-full"></div>
                     <span class="font-bold text-blue-700 tracking-wider">NOS RÉALISATIONS RÉCENTES</span>
                 </div>
-                <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4">Découvrez Nos Projets</h2>
-                <p class="text-2xl text-gray-600">Un aperçu des chantiers réalisés par ENSBTP SARLU. Chaque projet reflète notre exigence de qualité et de durabilité.</p>
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Découvrez Nos Projets</h2>
+                <p class="text-xl text-gray-600">Un aperçu des chantiers réalisés par ENSBTP SARLU. Chaque projet reflète notre exigence de qualité et de durabilité.</p>
             </div>
 
             @if(isset($realisations) && $realisations->count())
@@ -269,14 +269,14 @@
                 <i class="fas fa-crown text-blue-600 text-lg"></i>
                 <span class="font-bold text-blue-700 tracking-wider text-lg">CHOIX DE PACKS EXCLUSIFS</span>
             </div>
-            <h2 class="text-6xl md:text-7xl font-bold text-gray-900 mb-6">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
                 Packs 
                 <span class="relative">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-600">Sur Mesure</span>
                     <span class="absolute -bottom-2 left-0 w-full h-1 bg-blue-600 rounded-full"></span>
                 </span>
             </h2>
-            <p class="text-2xl text-gray-600 leading-relaxed">
+            <p class="text-xl text-gray-600 leading-relaxed">
                 Choisissez le pack qui correspond parfaitement à votre budget et à vos ambitions
             </p>
         </div>
@@ -328,7 +328,7 @@
 
                         <!-- CTA Button -->
                         <a href="#contact" 
-                           class="block w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-xl text-center hover:bg-blue-700 transition-all duration-300 shadow-lg">
+                           class="block w-full py-3 px-6 bg-blue-600 text-white font-bold rounded-xl text-center hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300">
                             Choisir ce pack
                         </a>
                     </div>
@@ -357,8 +357,8 @@
                     <i class="fas fa-file-invoice-dollar text-blue-600"></i>
                     <span class="font-semibold text-blue-700 text-sm uppercase tracking-wide">Demande de devis gratuit</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Obtenez une estimation pour votre projet</h2>
-                <p class="text-lg md:text-xl text-gray-600">Remplissez ce formulaire avec les informations principales de votre projet. Notre équipe vous recontactera rapidement avec une proposition adaptée.</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Obtenez une estimation pour votre projet</h2>
+                <p class="text-base md:text-lg text-gray-600">Remplissez ce formulaire avec les informations principales de votre projet. Notre équipe vous recontactera rapidement avec une proposition adaptée.</p>
             </div>
 
             <form method="POST" action="{{ route('service.store') }}" class="space-y-6">
@@ -445,15 +445,15 @@
             <div class="text-center mb-16">
                 <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-lg rounded-full px-10 py-5 mb-8 border border-white/30 shadow-2xl">
                     <i class="fas fa-comment-dots text-white text-2xl"></i>
-                    <span class="font-bold text-white text-xl">PRÊT À COMMENCER ?</span>
+                    <span class="font-bold text-white text-lg">PRÊT À COMMENCER ?</span>
                 </div>
-                <h2 class="text-6xl md:text-7xl font-bold text-white mb-6">
+                <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
                     Contactez-Nous
-                    <span class="block text-blue-100 text-3xl md:text-4xl">
+                    <span class="block text-blue-100 text-2xl md:text-3xl">
                         Dès Maintenant
                     </span>
                 </h2>
-                <p class="text-2xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
+                <p class="text-xl text-blue-100 leading-relaxed max-w-2xl mx-auto">
                     Prenez contact avec notre équipe d'experts pour discuter de votre projet
                 </p>
             </div>
