@@ -240,29 +240,15 @@
                             <i class="fas fa-cogs text-blue-500 mr-2"></i>
                             Service demandé
                         </label>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            @foreach([
-                                'Bâtiment & Travaux Publics',
-                                'Conseils & Conception',
-                                'Suivi de Projets',
-                                'Réalisation'
-                            ] as $service)
-                            <div class="relative">
-                                <input type="radio" name="service" id="service{{ $loop->index }}" value="{{ $service }}" 
-                                       class="hidden peer" {{ $loop->first ? 'checked' : '' }}>
-                                <label for="service{{ $loop->index }}" 
-                                       class="flex items-center justify-between p-4 border-2 border-gray-200 rounded-xl cursor-pointer peer-checked:border-blue-500 peer-checked:bg-blue-50 hover:border-blue-300 transition-all duration-300">
-                                    <div class="flex items-center">
-                                        <div class="w-10 h-10 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
-                                            <i class="fas fa-check text-blue-600 opacity-0 peer-checked:opacity-100 transition-opacity duration-300"></i>
-                                        </div>
-                                        <span class="font-medium text-gray-800">{{ $service }}</span>
-                                    </div>
-                                    <i class="fas fa-arrow-right text-blue-500 opacity-0 peer-checked:opacity-100 transition-opacity duration-300"></i>
-                                </label>
-                            </div>
-                            @endforeach
-                        </div>
+                        <select name="service"
+                                id="serviceSelect"
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl bg-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300">
+                            <option value="">Sélectionnez un service</option>
+                            <option value="Bâtiment & Travaux Publics">Bâtiment & Travaux Publics</option>
+                            <option value="Conseils & Conception">Conseils & Conception</option>
+                            <option value="Suivi de Projets">Suivi de Projets</option>
+                            <option value="Réalisation">Réalisation</option>
+                        </select>
                     </div>
 
                     <!-- Personal Information -->
@@ -344,23 +330,25 @@
     function openServiceRequest(serviceName) {
         // Scroll to form
         document.getElementById('demande').scrollIntoView({ behavior: 'smooth' });
-        
-        // Set the service in form
-        const serviceInput = document.querySelector(`input[value="${serviceName}"]`);
-        if (serviceInput) {
-            serviceInput.checked = true;
-            
-            // Add visual feedback
-            const label = serviceInput.nextElementSibling;
-            label.classList.add('ring-2', 'ring-blue-500');
+
+        // Set the service in the select field
+        const select = document.getElementById('serviceSelect');
+        if (select) {
+            select.value = serviceName;
+
+            // Small visual feedback
+            select.classList.add('ring-2', 'ring-blue-500');
             setTimeout(() => {
-                label.classList.remove('ring-2', 'ring-blue-500');
-            }, 2000);
+                select.classList.remove('ring-2', 'ring-blue-500');
+            }, 1500);
         }
-        
+
         // Focus on name field
         setTimeout(() => {
-            document.querySelector('input[name="name"]').focus();
+            const nameInput = document.querySelector('input[name="name"]');
+            if (nameInput) {
+                nameInput.focus();
+            }
         }, 500);
     }
     
