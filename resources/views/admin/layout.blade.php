@@ -116,17 +116,13 @@
         <script>
             function toggleSidebar() {
                 const sidebar = document.getElementById('adminSidebar');
-                const mainContent = document.getElementById('mainContent');
                 sidebar.classList.toggle('-translate-x-full');
-                mainContent.classList.toggle('md:ml-64');
-                mainContent.classList.toggle('ml-0');
             }
 
             document.addEventListener('DOMContentLoaded', function() {
                 function handleResize() {
                     if (window.innerWidth >= 768) {
                         document.getElementById('adminSidebar').classList.remove('-translate-x-full');
-                        document.getElementById('mainContent').classList.add('md:ml-64');
                     }
                 }
                 window.addEventListener('resize', handleResize);
